@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         cutomerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent menuIntent = new Intent(getApplicationContext(), CustomerMainActivity.class);
+                Intent menuIntent = new Intent(getApplicationContext(), CustomerRestaurantChooserActivity.class);
                 startActivity(menuIntent);
             }
         });
