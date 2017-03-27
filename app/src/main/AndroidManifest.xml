@@ -35,6 +35,14 @@
         <activity
             android:name=".EditDishActivity"
             android:label="@string/title_activity_edit_dish"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CustomerRestaurantChooserActivity"
+            android:label="@string/title_activity_customer_restaurant_chooser"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CustomerDishChooser"
+            android:label="@string/title_activity_customer_dish_chooser"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
