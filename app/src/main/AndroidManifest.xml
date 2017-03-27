@@ -16,6 +16,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".RestaurantMainActivity"
+            android:label="@string/title_activity_restaurant_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".CustomerMainActivity"
+            android:label="@string/title_activity_customer_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EditRestaurantActivity"
+            android:label="@string/title_activity_edit_restaurant"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EditMenuActivity"
+            android:label="@string/title_activity_edit_menu"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".EditDishActivity"
+            android:label="@string/title_activity_edit_dish"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

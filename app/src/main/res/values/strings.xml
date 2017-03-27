@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">eatsmart</string>
+    <!-- main -->
+    <string name="customer_button_text">Customer</string>
+    <string name="restaurant_button_text">Restaurant</string>
+
+    <!-- restaurant -->
+    <string name="title_activity_restaurant_main">RestaurantMainActivity</string>
+    <string name="restaurant_text">Restaurant</string>
+
+    <!-- customer -->
+    <string name="title_activity_customer_main">CustomerMainActivity</string>
+    <string name="customer_text">Customer</string>
+    <string name="title_activity_edit_restaurant">EditRestaurantActivity</string>
+    <string name="title_activity_edit_menu">EditMenuActivity</string>
+    <string name="title_activity_edit_dish">EditDishActivity</string>
 </resources>
