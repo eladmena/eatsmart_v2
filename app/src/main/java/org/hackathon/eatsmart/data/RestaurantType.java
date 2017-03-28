@@ -12,7 +12,7 @@ public enum RestaurantType {
     HUMUS("Humus"),
     ITALIAN("Italian"),
     DAIRY("Dairy"),
-    HUMBURGERS("Humburgers"),
+    HAMBURGERS("Hamburgers"),
     MEXICAN("Mexican"),
     PIZZA("Pizza"),
     VEGAN("Vegan"),
