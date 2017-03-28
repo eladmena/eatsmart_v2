@@ -27,7 +27,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent menuIntent = new Intent(getApplicationContext(), EditDishActivity.class);
+                Intent menuIntent = new Intent(getApplicationContext(), EditMenuActivity.class);
                 startActivity(menuIntent);
             }});
     }

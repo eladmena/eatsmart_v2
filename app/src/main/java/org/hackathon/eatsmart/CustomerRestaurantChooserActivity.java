@@ -5,8 +5,13 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class CustomerRestaurantChooserActivity extends AppCompatActivity {
 
@@ -16,8 +21,6 @@ public class CustomerRestaurantChooserActivity extends AppCompatActivity {
         setContentView(R.layout.activity_customer_restaurant_chooser);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        Toast.makeText(getApplicationContext(), "storage json: " + Storage.getInstance().getJson(), Toast.LENGTH_SHORT).show();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
