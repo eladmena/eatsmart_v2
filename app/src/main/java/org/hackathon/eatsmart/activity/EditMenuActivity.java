@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.hackathon.eatsmart.Storage;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -81,7 +82,7 @@ public class EditMenuActivity extends AppCompatActivity {
             }
         }
 
-        final AdapterDishList adbDish = new AdapterDishList (EditMenuActivity.this, 0, myListItems);
+        final DishAdapter adbDish = new DishAdapter (EditMenuActivity.this, 0, myListItems);
 
         final ListView listview = (ListView) findViewById(R.id.MenuDishList);
         listview.setAdapter(adbDish);
