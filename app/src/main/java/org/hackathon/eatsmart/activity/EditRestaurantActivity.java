@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.hackathon.eatsmart.Storage;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -24,9 +25,11 @@ public class EditRestaurantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit_restaurant);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        initRestData();
+
+
 
         initRestaurantTypes();
+        initRestData();
         Button fab = (Button) findViewById(R.id.applyBtn);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,10 +72,10 @@ public class EditRestaurantActivity extends AppCompatActivity {
         int i = 0;
         Spinner mySpinner = (Spinner) findViewById(R.id.restTypes);
 
-        for (eRestaurantType rest : eRestaurantType.values()) {
+        for (RestaurantType rest : RestaurantType.values()) {
             if(rest.toString().equals(selected))
             {
-                mySpinner.setAdapter(new ArrayAdapter<eRestaurantType>(this, android.R.layout.simple_spinner_item, eRestaurantType.values()));
+                mySpinner.setAdapter(new ArrayAdapter<RestaurantType>(this, android.R.layout.simple_spinner_item, RestaurantType.values()));
                 mySpinner.setSelection(i, true);
                 break;
             }
