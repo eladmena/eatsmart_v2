@@ -37,7 +37,7 @@
             android:label="@string/title_activity_edit_dish"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <meta-data android:name="com.google.android.geo.API_KEY" android:value="your API key"/>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAVV4tsOIo_EFPspHN5BC3XXvoh1CAf-nk"/>
         <activity
             android:name=".activity.CustomerRestaurantChooserActivity"
             android:label="@string/title_activity_customer_restaurant_chooser"
