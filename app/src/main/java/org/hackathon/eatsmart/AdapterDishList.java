@@ -15,15 +15,13 @@ import java.util.ArrayList;
  */
 
 public class AdapterDishList extends ArrayAdapter<Dish> {
-    private Activity activity;
     private ArrayList<Dish> dishList;
     private static LayoutInflater inflater = null;
 
-    public AdapterDishList (Activity activity, int textViewResourceId,ArrayList<Dish> _lDish) {
-        super(activity, textViewResourceId, _lDish);
+    public AdapterDishList (Activity activity, int textViewResourceId, ArrayList<Dish> dishList) {
+        super(activity, textViewResourceId, dishList);
         try {
-            this.activity = activity;
-            this.dishList = _lDish;
+            this.dishList = dishList;
 
             inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
