@@ -17,6 +17,7 @@ public enum RestaurantType {
     PIZZA("Pizza"),
     VEGAN("Vegan"),
     VEGETARIAN("Vegetarian"),
+    GREEK("Greek"),
     FAST_FOOD("Fast food");
 
     private String friendlyName;
