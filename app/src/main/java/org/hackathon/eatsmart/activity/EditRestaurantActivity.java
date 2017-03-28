@@ -1,15 +1,16 @@
-package org.hackathon.eatsmart;
+package org.hackathon.eatsmart.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import org.hackathon.eatsmart.R;
+import org.hackathon.eatsmart.data.RestaurantType;
 
 public class EditRestaurantActivity extends AppCompatActivity {
 
@@ -35,6 +36,6 @@ public class EditRestaurantActivity extends AppCompatActivity {
     {
         Spinner mySpinner = (Spinner) findViewById(R.id.restTypes);
 
-        mySpinner.setAdapter(new ArrayAdapter<eRestaurantType>(this, android.R.layout.simple_spinner_item, eRestaurantType.values()));
+        mySpinner.setAdapter(new ArrayAdapter<RestaurantType>(this, android.R.layout.simple_spinner_item, RestaurantType.values()));
     }
 }

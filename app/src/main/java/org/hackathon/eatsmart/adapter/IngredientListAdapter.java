@@ -1,4 +1,4 @@
-package org.hackathon.eatsmart;
+package org.hackathon.eatsmart.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,22 +9,23 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
+import org.hackathon.eatsmart.R;
+import org.hackathon.eatsmart.data.Ingredient;
+
 import java.util.ArrayList;
 
 /**
  * Created by avish on 3/26/2017.
  */
 
-public class AdapterDish extends ArrayAdapter<Ingredient> {
-    private Activity activity;
-    public ArrayList<Ingredient> lIngredient;
+public class IngredientListAdapter extends ArrayAdapter<Ingredient> {
+    private ArrayList<Ingredient> ingredientList;
     private static LayoutInflater inflater = null;
 
-    public AdapterDish (Activity activity, int textViewResourceId,ArrayList<Ingredient> _lIngredient) {
-        super(activity, textViewResourceId, _lIngredient);
+    public IngredientListAdapter(Activity activity, int textViewResourceId, ArrayList<Ingredient> ingredientList) {
+        super(activity, textViewResourceId, ingredientList);
         try {
-            this.activity = activity;
-            this.lIngredient = _lIngredient;
+            this.ingredientList = ingredientList;
 
             inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -34,7 +35,7 @@ public class AdapterDish extends ArrayAdapter<Ingredient> {
     }
 
     public int getCount() {
-        return lIngredient.size();
+        return ingredientList.size();
     }
 
     public Ingredient getItem(Ingredient position) {
@@ -43,6 +44,14 @@ public class AdapterDish extends ArrayAdapter<Ingredient> {
 
     public long getItemId(int position) {
         return position;
+    }
+
+    public void removeFromList(int i) {
+        ingredientList.remove(i);
+    }
+
+    public void addIngredient(Ingredient ingredient) {
+        ingredientList.add(ingredient);
     }
 
     public static class ViewHolder {
@@ -73,8 +82,8 @@ public class AdapterDish extends ArrayAdapter<Ingredient> {
 
 
 
-            holder.display_name.setText(lIngredient.get(position).item_name);
-            holder.display_quantity.setText(lIngredient.get(position).item_quantity);
+            holder.display_name.setText(ingredientList.get(position).item_name);
+            holder.display_quantity.setText(ingredientList.get(position).item_quantity);
 
 
         } catch (Exception e) {

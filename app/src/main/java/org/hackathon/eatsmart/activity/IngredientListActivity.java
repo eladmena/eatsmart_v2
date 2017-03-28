@@ -1,4 +1,4 @@
-package org.hackathon.eatsmart;
+package org.hackathon.eatsmart.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import org.hackathon.eatsmart.adapter.IngredientListAdapter;
+import org.hackathon.eatsmart.data.Ingredient;
+import org.hackathon.eatsmart.R;
 
 import java.util.ArrayList;
 
@@ -37,7 +41,7 @@ public class IngredientListActivity extends AppCompatActivity {
                     String quantity = animalsArray[1];
                     Ingredient newIngredient = new Ingredient( ingName ,quantity);
                     addToListView(newIngredient);
-                    AdapterDish adbDish = (AdapterDish)listview.getAdapter();
+                    IngredientListAdapter adbDish = (IngredientListAdapter)listview.getAdapter();
                     adbDish.notifyDataSetChanged();
                 }
 
@@ -49,7 +53,7 @@ public class IngredientListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 /** Getting the checked items from the listview */
-                AdapterDish adbDish = (AdapterDish)listview.getAdapter();
+                IngredientListAdapter dishAdapter = (IngredientListAdapter)listview.getAdapter();
                 SparseBooleanArray checkedItemPositions = listview.getCheckedItemPositions();
                 int itemCount = listview.getCount();
 
@@ -59,13 +63,13 @@ public class IngredientListActivity extends AppCompatActivity {
                     String s = String.valueOf(size);
                     Ingredient tmp = new Ingredient("fff" , s) ;
                     addToListView(tmp);
-                    if( size > 0){
-                        adbDish.lIngredient.remove(i);
+                    if(size > 0){
+                        dishAdapter.removeFromList(i);
 
                     }
                 }
                 checkedItemPositions.clear();
-                adbDish.notifyDataSetChanged();
+                dishAdapter.notifyDataSetChanged();
             }
         };
 
@@ -83,21 +87,21 @@ public class IngredientListActivity extends AppCompatActivity {
     }
 
     public void listView() {
-        AdapterDish adbDish;
+        IngredientListAdapter adbDish;
         final ArrayList<Ingredient> myListItems = new ArrayList<Ingredient>();
 
         for (int i = 0; i < ingredients.length; ++i) {
             myListItems.add(ingredients[i]);
         }
 
-        adbDish = new AdapterDish (IngredientListActivity.this, 0, myListItems);
+        adbDish = new IngredientListAdapter(IngredientListActivity.this, 0, myListItems);
         listview.setAdapter(adbDish);
     }
 
     public void addToListView(Ingredient ingredient) {
 
-        AdapterDish adbDish = (AdapterDish)listview.getAdapter();
-        adbDish.lIngredient.add(ingredient);
+        IngredientListAdapter dishAdapter = (IngredientListAdapter)listview.getAdapter();
+        dishAdapter.addIngredient(ingredient);
 
     }
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="org.hackathon.eatsmart.CustomerRestaurantChooserActivity"
+    tools:context="org.hackathon.eatsmart.activity.CustomerRestaurantChooserActivity"
     tools:showIn="@layout/activity_customer_restaurant_chooser">
 
 </android.support.constraint.ConstraintLayout>

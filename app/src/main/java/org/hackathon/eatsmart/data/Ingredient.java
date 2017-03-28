@@ -1,4 +1,4 @@
-package org.hackathon.eatsmart;
+package org.hackathon.eatsmart.data;
 
 
 /**

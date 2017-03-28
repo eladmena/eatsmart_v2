@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,34 +17,37 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RestaurantMainActivity"
+            android:name=".activity.RestaurantMainActivity"
             android:label="@string/title_activity_restaurant_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CustomerMainActivity"
+            android:name=".activity.CustomerMainActivity"
             android:label="@string/title_activity_customer_main"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".EditRestaurantActivity"
+            android:name=".activity.EditRestaurantActivity"
             android:label="@string/title_activity_edit_restaurant"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".EditMenuActivity"
+            android:name=".activity.EditMenuActivity"
             android:label="@string/title_activity_edit_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".EditDishActivity"
+            android:name=".activity.EditDishActivity"
             android:label="@string/title_activity_edit_dish"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAVV4tsOIo_EFPspHN5BC3XXvoh1CAf-nk"/>
         <activity
-            android:name=".CustomerRestaurantChooserActivity"
+            android:name=".activity.CustomerRestaurantChooserActivity"
             android:label="@string/title_activity_customer_restaurant_chooser"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity
-            android:name=".CustomerDishChooserActivity"
+            android:name=".activity.CustomerDishChooserActivity"
             android:label="@string/title_activity_customer_dish_chooser"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".IngredientListActivity"></activity>
+        <activity android:name=".activity.IngredientListActivity"></activity>
     </application>
 
 </manifest>

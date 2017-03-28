@@ -1,10 +1,10 @@
-package org.hackathon.eatsmart;
+package org.hackathon.eatsmart.data;
 
 /**
  * Created by htg1ue on 3/28/2017.
  */
 
-public enum eRestaurantType {
+public enum RestaurantType {
     STREET_FOOD("Street food"),
     BISTRO("Bistro"),
     SALAD_BAR("Salad bar"),
@@ -12,7 +12,7 @@ public enum eRestaurantType {
     HUMUS("Humus"),
     ITALIAN("Italian"),
     DAIRY("Dairy"),
-    HUMBURGERS("Humburgers"),
+    HAMBURGERS("Hamburgers"),
     MEXICAN("Mexican"),
     PIZZA("Pizza"),
     VEGAN("Vegan"),
@@ -21,7 +21,7 @@ public enum eRestaurantType {
 
     private String friendlyName;
 
-    private eRestaurantType(String friendlyName){
+    private RestaurantType(String friendlyName){
         this.friendlyName = friendlyName;
     }
 

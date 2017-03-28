@@ -1,24 +1,20 @@
-package org.hackathon.eatsmart;
+package org.hackathon.eatsmart.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.hackathon.eatsmart.R;
 
-public class CustomerRestaurantChooserActivity extends AppCompatActivity {
+public class RestaurantMainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_customer_restaurant_chooser);
+        setContentView(R.layout.activity_restaurant_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -26,9 +22,8 @@ public class CustomerRestaurantChooserActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent menuIntent = new Intent(getApplicationContext(), CustomerDishChooserActivity.class);
+                Intent menuIntent = new Intent(getApplicationContext(), EditRestaurantActivity.class);
                 startActivity(menuIntent);
-
             }
         });
     }
