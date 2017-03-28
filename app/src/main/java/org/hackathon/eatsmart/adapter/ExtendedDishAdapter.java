@@ -1,4 +1,4 @@
-package org.hackathon.eatsmart;
+package org.hackathon.eatsmart.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,17 +8,20 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import org.hackathon.eatsmart.R;
+import org.hackathon.eatsmart.data.Dish;
+
 import java.util.ArrayList;
 
 /**
- * Created by avish on 3/28/2017.
+ * Created by menashee on 28/03/2017.
  */
 
-public class AdapterDishList extends ArrayAdapter<Dish> {
+public class ExtendedDishAdapter extends ArrayAdapter<Dish> {
     private ArrayList<Dish> dishList;
     private static LayoutInflater inflater = null;
 
-    public AdapterDishList (Activity activity, int textViewResourceId, ArrayList<Dish> dishList) {
+    public ExtendedDishAdapter(Activity activity, int textViewResourceId, ArrayList<Dish> dishList) {
         super(activity, textViewResourceId, dishList);
         try {
             this.dishList = dishList;
@@ -43,34 +46,28 @@ public class AdapterDishList extends ArrayAdapter<Dish> {
     }
 
     public static class ViewHolder {
-        public TextView display_name;
-        //public TextView display_number;
-
+        public TextView dish_name;
+        public TextView dish_description;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi = convertView;
-        final ViewHolder holder;
+        final ExtendedDishAdapter.ViewHolder holder;
         try {
             if (convertView == null) {
-                vi = inflater.inflate(R.layout.menu_item, null);
-                holder = new ViewHolder();
+                vi = inflater.inflate(R.layout.fragment_dishitem, null);
+                holder = new ExtendedDishAdapter.ViewHolder();
 
-                holder.display_name = (TextView) vi.findViewById(R.id.display_name);
-                //holder.display_number = (TextView) vi.findViewById(R.id.display_number);
-
+                holder.dish_name = (TextView) vi.findViewById(R.id.dishName);
+                holder.dish_description = (TextView) vi.findViewById(R.id.dishDescription);
 
                 vi.setTag(holder);
             } else {
-                holder = (ViewHolder) vi.getTag();
+                holder = (ExtendedDishAdapter.ViewHolder) vi.getTag();
             }
 
-
-
-            holder.display_name.setText(dishList.get(position).getDishName());
-            //holder.display_number.setText(lDish.get(position).number);
-
-
+            holder.dish_name.setText(dishList.get(position).getDishName());
+            holder.dish_description.setText(dishList.get(position).getDishDescription());
         } catch (Exception e) {
 
 

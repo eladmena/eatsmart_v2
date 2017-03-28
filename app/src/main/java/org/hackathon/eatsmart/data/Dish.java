@@ -1,4 +1,4 @@
-package org.hackathon.eatsmart;
+package org.hackathon.eatsmart.data;
 
 /**
  * Created by avish on 3/28/2017.

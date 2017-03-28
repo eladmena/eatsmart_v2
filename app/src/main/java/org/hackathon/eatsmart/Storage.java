@@ -150,6 +150,17 @@ public class Storage {
         return null;
     }
 
+    public JSONArray getLandverDishes() {
+        JSONObject landverRest = getLandverRest();
+        try {
+            return landverRest.getJSONArray("dishes");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     public void addDishToLandver(JSONObject newDish) {
         JSONObject landverRest = getLandverRest();
         try {
