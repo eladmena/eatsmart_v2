@@ -50,5 +50,6 @@
             android:label="@string/title_activity_customer_dish_chooser"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.IngredientListActivity"></activity>
+        <activity android:name=".activity.FoodFilteringActivity"></activity>
     </application>
 </manifest>
