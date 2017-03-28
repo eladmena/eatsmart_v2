@@ -9,17 +9,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.hackathon.eatsmart.R;
 import org.hackathon.eatsmart.Storage;
+import org.hackathon.eatsmart.adapter.DishAdapter;
+import org.hackathon.eatsmart.data.Dish;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import org.hackathon.eatsmart.adapter.DishAdapter;
-import org.hackathon.eatsmart.data.Dish;
-import org.hackathon.eatsmart.R;
-
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class EditMenuActivity extends AppCompatActivity {
 

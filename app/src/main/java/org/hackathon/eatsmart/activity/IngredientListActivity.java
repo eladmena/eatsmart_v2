@@ -8,9 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import org.hackathon.eatsmart.R;
 import org.hackathon.eatsmart.adapter.IngredientListAdapter;
 import org.hackathon.eatsmart.data.Ingredient;
-import org.hackathon.eatsmart.R;
 
 import java.util.ArrayList;
 
