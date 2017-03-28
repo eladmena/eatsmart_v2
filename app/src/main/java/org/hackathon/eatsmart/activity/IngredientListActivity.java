@@ -2,7 +2,6 @@ package org.hackathon.eatsmart.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -48,30 +47,30 @@ public class IngredientListActivity extends AppCompatActivity {
             }
         };
 
-        /** Defining a click event listener for the button "Delete" */
-        View.OnClickListener listenerDel = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                /** Getting the checked items from the listview */
-                IngredientListAdapter dishAdapter = (IngredientListAdapter)listview.getAdapter();
-                SparseBooleanArray checkedItemPositions = listview.getCheckedItemPositions();
-                int itemCount = listview.getCount();
-
-
-                for(int i=itemCount-1; i >= 0; i--){
-                    int size = checkedItemPositions.size();
-                    String s = String.valueOf(size);
-                    Ingredient tmp = new Ingredient("fff" , s) ;
-                    addToListView(tmp);
-                    if(size > 0){
-                        dishAdapter.removeFromList(i);
-
-                    }
-                }
-                checkedItemPositions.clear();
-                dishAdapter.notifyDataSetChanged();
-            }
-        };
+//        /** Defining a click event listener for the button "Delete" */
+//        View.OnClickListener listenerDel = new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                /** Getting the checked items from the listview */
+//                IngredientListAdapter dishAdapter = (IngredientListAdapter)listview.getAdapter();
+//                SparseBooleanArray checkedItemPositions = listview.getCheckedItemPositions();
+//                int itemCount = listview.getCount();
+//
+//
+//                for(int i=itemCount-1; i >= 0; i--){
+//                    int size = checkedItemPositions.size();
+//                    String s = String.valueOf(size);
+//                    Ingredient tmp = new Ingredient("fff" , s) ;
+//                    addToListView(tmp);
+//                    if(size > 0){
+//                        dishAdapter.removeFromList(i);
+//
+//                    }
+//                }
+//                checkedItemPositions.clear();
+//                dishAdapter.notifyDataSetChanged();
+//            }
+//        };
 
 
 
@@ -81,8 +80,8 @@ public class IngredientListActivity extends AppCompatActivity {
         Button btn = (Button) findViewById(R.id.btnAdd);
         btn.setOnClickListener(listener);
 
-        Button btnDel = (Button) findViewById(R.id.btnDel);
-        btnDel.setOnClickListener(listenerDel);
+       // Button btnDel = (Button) findViewById(R.id.btnDel);
+      //  btnDel.setOnClickListener(listenerDel);
 
     }
 
