@@ -1,33 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="org.hackathon.eatsmart.EditDishActivity">
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
+
+    <TableLayout
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_margin="5dp">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent">
 
-    </android.support.design.widget.AppBarLayout>
+            <EditText
+                android:id="@+id/dishName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Dish Name"
+                android:imeOptions="flagNoExtractUi"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="16dp" />
+        </TableRow>
 
-    <include layout="@layout/content_edit_dish" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent">
 
-</android.support.design.widget.CoordinatorLayout>
+
+            <EditText
+                android:id="@+id/price"
+                android:layout_width="59dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Price"
+                android:imeOptions="flagNoExtractUi"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="8dp" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent">
+
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="59dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Dish description.."
+                android:imeOptions="flagNoExtractUi"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="8dp" />
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent">
+
+
+            <ImageView
+                android:id="@+id/imageview"
+                android:layout_width="410dp"
+                android:layout_height="350dp"
+                android:layout_centerHorizontal="true"
+                android:layout_above="@+id/button_image"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/addPhoto"
+                android:layout_width="59dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Add/Replace Dish Photo "
+                android:imeOptions="flagNoExtractUi"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="8dp"
+                />
+
+        </TableRow>
+
+
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/ingButton"
+                android:layout_width="59dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Dish Ingridients"
+                android:imeOptions="flagNoExtractUi"
+                tools:layout_editor_absoluteX="7dp"
+                tools:layout_editor_absoluteY="8dp"
+                />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+
+
+</android.support.constraint.ConstraintLayout>
