@@ -69,6 +69,9 @@ public class IngredientListActivity extends AppCompatActivity {
             }
         };
 
+
+
+
         /** Setting the event listener for the add button */
         /** Reference to the add button of the layout main.xml */
         Button btn = (Button) findViewById(R.id.btnAdd);

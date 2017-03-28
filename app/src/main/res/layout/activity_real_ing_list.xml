@@ -58,12 +58,30 @@
 
         </ListView>
 
+
+
         <Button
-            android:id="@+id/btnDel"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:text="Delete Selected Items" />
+        android:id="@+id/btnDel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete Selected Items"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+
+        <include layout="@layout/content_edit_dish" android:id="@+id/include" />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/saveBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/btnDel"
+            android:layout_alignRight="@+id/btnDel"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            app:srcCompat="@android:drawable/checkbox_on_background" />
+
     </RelativeLayout>
 
 
