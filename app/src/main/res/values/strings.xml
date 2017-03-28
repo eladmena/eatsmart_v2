@@ -16,5 +16,5 @@
     <string name="title_activity_edit_dish">EditDishActivity</string>
     <string name="title_activity_customer_restaurant_chooser">CustomerRestaurantChooserActivity
     </string>
-    <string name="title_activity_customer_dish_chooser">CustomerDishChooser</string>
+    <string name="title_activity_customer_dish_chooser">CustomerDishChooserActivity</string>
 </resources>

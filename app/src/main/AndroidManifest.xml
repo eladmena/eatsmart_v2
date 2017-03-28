@@ -41,7 +41,7 @@
             android:label="@string/title_activity_customer_restaurant_chooser"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CustomerDishChooser"
+            android:name=".CustomerDishChooserActivity"
             android:label="@string/title_activity_customer_dish_chooser"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class CustomerDishChooser extends AppCompatActivity {
+public class CustomerDishChooserActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class CustomerDishChooser extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "CustomerDishChooser", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "CustomerDishChooserActivity", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
