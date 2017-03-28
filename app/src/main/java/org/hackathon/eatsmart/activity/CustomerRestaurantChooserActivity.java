@@ -73,6 +73,8 @@ public class CustomerRestaurantChooserActivity extends FragmentActivity implemen
             @Override
             public boolean onMarkerClick(Marker marker) {
                 Toast.makeText(getApplicationContext(), "Clicked a window with title..." + marker.getTitle(), Toast.LENGTH_SHORT).show();
+                Intent menuIntent = new Intent(getApplicationContext(), CustomerDishChooserActivity.class);
+                startActivity(menuIntent);
                 return true;
             }
         });
