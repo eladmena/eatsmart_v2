@@ -1,4 +1,4 @@
-package org.hackathon.eatsmart;
+package org.hackathon.eatsmart.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,10 @@ import android.widget.ListView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import org.hackathon.eatsmart.adapter.DishAdapter;
+import org.hackathon.eatsmart.data.Dish;
+import org.hackathon.eatsmart.R;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package org.hackathon.eatsmart;
+package org.hackathon.eatsmart.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,12 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import org.hackathon.eatsmart.R;
+import org.hackathon.eatsmart.Storage;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 
 public class CustomerRestaurantChooserActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -54,26 +60,43 @@ public class CustomerRestaurantChooserActivity extends FragmentActivity implemen
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        //LatLng sydney = new LatLng(-34, 151);
-        //mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        JSONObject json =  Storage.getInstance().getJson();
 
-        LatLng monoGreekRest = new LatLng(31.985953206105055, 34.912804663181305);
-        mMap.addMarker(new MarkerOptions().position(monoGreekRest).title("Mono Greek"));
-        LatLng landverRest = new LatLng(31.98610904283177, 34.91290658712387);
-        mMap.addMarker(new MarkerOptions().position(landverRest).title("Landver"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(monoGreekRest));
-
+        JSONArray rests = null;
+        try {
+            rests = json.getJSONArray("restaurants");
+            for(int i = 0; i < rests.length(); i++) {
+                JSONObject rest = rests.getJSONObject(i);
+                LatLng loc = new LatLng(rest.getDouble("lat"), rest.getDouble("lng"));
+                mMap.addMarker(new MarkerOptions().position(loc).title(rest.getString("name")));
+                moveToCurrentLocation(loc);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener()
         {
             @Override
             public boolean onMarkerClick(Marker marker) {
-                Toast.makeText(getApplicationContext(), "Clicked a window with title..." + marker.getTitle(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Clicked a window with title..." + marker.getTitle(), Toast.LENGTH_SHORT).show();
+                Intent menuIntent = new Intent(getApplicationContext(), CustomerDishChooserActivity.class);
+                startActivity(menuIntent);
                 return true;
             }
         });
     }
+
+    private void moveToCurrentLocation(LatLng currentLocation)
+    {
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentLocation,15));
+        // Zoom in, animating the camera.
+        mMap.animateCamera(CameraUpdateFactory.zoomIn());
+        // Zoom out to zoom level 10, animating with a duration of 2 seconds.
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
+
+
+    }
+
 
 }
