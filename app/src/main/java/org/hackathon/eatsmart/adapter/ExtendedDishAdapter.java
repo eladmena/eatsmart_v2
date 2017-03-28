@@ -55,7 +55,7 @@ public class ExtendedDishAdapter extends ArrayAdapter<Dish> {
         final ExtendedDishAdapter.ViewHolder holder;
         try {
             if (convertView == null) {
-                vi = inflater.inflate(R.layout.menu_item, null);
+                vi = inflater.inflate(R.layout.fragment_dishitem, null);
                 holder = new ExtendedDishAdapter.ViewHolder();
 
                 holder.dish_name = (TextView) vi.findViewById(R.id.dishName);

@@ -20,9 +20,9 @@ public class CustomerDishChooserActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        final ListView dishList = (ListView) findViewById(R.id.dishList);
+        final ListView dishList = (ListView) findViewById(R.id.custDishList);
         final ArrayList<Dish> myListItems = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 1; i < 16; i++) {
             String prefix = i < 10 ? "0" : "";
             myListItems.add(new Dish("Dish" + prefix + i, "Description " + prefix + i));
         }
