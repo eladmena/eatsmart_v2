@@ -3,7 +3,6 @@ package org.hackathon.eatsmart;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -16,25 +15,25 @@ import java.util.Collections;
 public class EditMenuActivity extends AppCompatActivity {
 
     private static Dish[] DISHES = new Dish[] {
-            new Dish ("A"),
-            new Dish ("B"),
-            new Dish ("C"),
-            new Dish ("D"),
-            new Dish ("E"),
-            new Dish ("F"),
-            new Dish ("G"),
-            new Dish ("H"),
-            new Dish ("I"),
-            new Dish ("I"),
-            new Dish ("I"),
-            new Dish ("I"),
-            new Dish ("I"),
-            new Dish ("I"),
-            new Dish ("I"),
-            new Dish ("I"),
-            new Dish ("I"),
-            new Dish ("I"),
-            new Dish ("End"),
+            new Dish ("A", "aaa"),
+            new Dish ("B", "bbb"),
+            new Dish ("C", "ccc"),
+            new Dish ("D", "ddd"),
+            new Dish ("E", "eee"),
+            new Dish ("F", "fff"),
+            new Dish ("G", "ggg"),
+            new Dish ("H", "hhh"),
+            new Dish ("I", "iii"),
+            new Dish ("I", "iii"),
+            new Dish ("I", "iii"),
+            new Dish ("I", "iii"),
+            new Dish ("I", "iii"),
+            new Dish ("I", "iii"),
+            new Dish ("I", "iii"),
+            new Dish ("I", "iii"),
+            new Dish ("I", "iii"),
+            new Dish ("I", "iii"),
+            new Dish ("End", "end is the end"),
     };
 
     @Override
