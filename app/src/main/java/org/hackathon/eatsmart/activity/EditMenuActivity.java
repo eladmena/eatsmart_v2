@@ -1,4 +1,4 @@
-package org.hackathon.eatsmart;
+package org.hackathon.eatsmart.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+
+import org.hackathon.eatsmart.adapter.DishAdapter;
+import org.hackathon.eatsmart.data.Dish;
+import org.hackathon.eatsmart.R;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -55,7 +59,7 @@ public class EditMenuActivity extends AppCompatActivity {
         final ListView listview = (ListView) findViewById(R.id.MenuDishList);
         final ArrayList<Dish> myListItems = new ArrayList<>();
         Collections.addAll(myListItems, DISHES);
-        final AdapterDishList adbDish = new AdapterDishList (EditMenuActivity.this, 0, myListItems);
+        final DishAdapter adbDish = new DishAdapter(EditMenuActivity.this, 0, myListItems);
 
         listview.setAdapter(adbDish);
         listview.setTranscriptMode(ListView.TRANSCRIPT_MODE_NORMAL);

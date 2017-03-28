@@ -1,10 +1,12 @@
-package org.hackathon.eatsmart;
+package org.hackathon.eatsmart.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import org.hackathon.eatsmart.R;
 
 public class MainActivity extends AppCompatActivity {
 

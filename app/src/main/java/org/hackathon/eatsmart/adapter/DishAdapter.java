@@ -1,4 +1,4 @@
-package org.hackathon.eatsmart;
+package org.hackathon.eatsmart.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,25 +6,25 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.CheckBox;
 import android.widget.TextView;
+
+import org.hackathon.eatsmart.R;
+import org.hackathon.eatsmart.data.Dish;
 
 import java.util.ArrayList;
 
 /**
- * Created by avish on 3/26/2017.
+ * Created by avish on 3/28/2017.
  */
 
-public class AdapterDish extends ArrayAdapter<Ingredient> {
-    private Activity activity;
-    public ArrayList<Ingredient> lIngredient;
+public class DishAdapter extends ArrayAdapter<Dish> {
+    private ArrayList<Dish> dishList;
     private static LayoutInflater inflater = null;
 
-    public AdapterDish (Activity activity, int textViewResourceId,ArrayList<Ingredient> _lIngredient) {
-        super(activity, textViewResourceId, _lIngredient);
+    public DishAdapter(Activity activity, int textViewResourceId, ArrayList<Dish> dishList) {
+        super(activity, textViewResourceId, dishList);
         try {
-            this.activity = activity;
-            this.lIngredient = _lIngredient;
+            this.dishList = dishList;
 
             inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -34,10 +34,10 @@ public class AdapterDish extends ArrayAdapter<Ingredient> {
     }
 
     public int getCount() {
-        return lIngredient.size();
+        return dishList.size();
     }
 
-    public Ingredient getItem(Ingredient position) {
+    public Dish getItem(Dish position) {
         return position;
     }
 
@@ -47,24 +47,21 @@ public class AdapterDish extends ArrayAdapter<Ingredient> {
 
     public static class ViewHolder {
         public TextView display_name;
-        public TextView display_quantity;
-        public CheckBox checkbox;
+        //public TextView display_number;
 
     }
-
-
 
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi = convertView;
         final ViewHolder holder;
         try {
             if (convertView == null) {
-                vi = inflater.inflate(R.layout.dish_item, null);
+                vi = inflater.inflate(R.layout.menu_item, null);
                 holder = new ViewHolder();
 
                 holder.display_name = (TextView) vi.findViewById(R.id.display_name);
-                holder.display_quantity = (TextView) vi.findViewById(R.id.display_quantity);
-                holder.checkbox = (CheckBox) vi.findViewById(R.id.checkBox1);
+                //holder.display_number = (TextView) vi.findViewById(R.id.display_number);
+
 
                 vi.setTag(holder);
             } else {
@@ -73,8 +70,8 @@ public class AdapterDish extends ArrayAdapter<Ingredient> {
 
 
 
-            holder.display_name.setText(lIngredient.get(position).item_name);
-            holder.display_quantity.setText(lIngredient.get(position).item_quantity);
+            holder.display_name.setText(dishList.get(position).getDishName());
+            //holder.display_number.setText(lDish.get(position).number);
 
 
         } catch (Exception e) {

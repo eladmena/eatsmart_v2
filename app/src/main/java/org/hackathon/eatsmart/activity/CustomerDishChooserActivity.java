@@ -1,8 +1,10 @@
-package org.hackathon.eatsmart;
+package org.hackathon.eatsmart.activity;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+
+import org.hackathon.eatsmart.R;
 
 public class CustomerDishChooserActivity extends AppCompatActivity {
 
