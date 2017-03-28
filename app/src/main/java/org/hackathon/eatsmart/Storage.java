@@ -31,9 +31,10 @@ import org.json.JSONObject;
       "lng": 34.91290658712387,
       "dishes": [
         {
-          "name": "Chicken Tika",
+          "name": "Chicken Tikka",
           "description": "An Indian Dish With Carri",
           "pic": "http://assets.epicurious.com/photos/54af56b3c4a891cc44cceb29/master/pass/51171400_chicken-tikka-masala_1x1.jpg",
+		  "healthAttrs": ["High Protein", "No Gluten"],
           "ingredients": [
             {
               "name": "carri",
@@ -48,7 +49,7 @@ import org.json.JSONObject;
               "quantity": "250g"
             }
           ],
-          "nutritions": [
+          "nutritions":
             {
               "serving_weight_grams": 204.525,
               "calories": 305.43,
@@ -62,7 +63,44 @@ import org.json.JSONObject;
               "protein": 29.11,
               "potassium": 501.03
             }
-          ]
+        },
+		{
+          "name": "Nourishing Muesli",
+          "description": "Pronounced as muse-lee, it is an uncooked mixture of nuts, seeds, grains, dried fruits, and spices",
+          "pic": "http://nutritionstripped.com/wp-content/uploads/2014/02/nourishing-muesli5-e1392592834715.jpg",
+		  "healthAttrs": ["High Protein", "Good Fat"],
+          "ingredients": [
+            {
+              "name": "rolled oats",
+              "quantity": "2 cups"
+            },
+            {
+              "name": "quinoa flakes",
+              "quantity": "2 cups"
+            },
+            {
+              "name": "almonds",
+              "quantity": "1 cup"
+            },
+			{
+              "name": "vanilla extract",
+              "quantity": "1 teaspoon"
+            }
+          ],
+          "nutritions":
+            {
+              "serving_weight_grams": 71.06607,
+			  "calories": 233.67,
+              "total_fat": 13.7,
+              "saturated_fat": 2.9,
+              "cholesterol": 0,
+              "sodium": 318.35,
+              "total_carbohydrate": 23.74,
+              "dietary_fiber": 4.72,
+              "sugars": 8.59,
+              "protein": 7.54,
+              "potassium": 359.24
+            }
         }
       ]
     }
@@ -105,7 +143,7 @@ import org.json.JSONObject;
  */
 public class Storage {
     private static Storage mInstance = null;
-    private String json = "{\n  \"restaurants\": [\n    {\n      \"name\": \"Mono Greek\",\n\t  \"street\": \"Negev\",\n\t  \"street_num\": 2,\n\t  \"city\": \"Airport City\",\n\t  \"type\": \"Greek\",\n\t  \"country\": \"Israel\",\n      \"lat\": 31.985953206105055,\n      \"lng\": 34.912804663181305\n\t},\n    {\n      \"name\": \"Landver\",\n\t  \"street\": \"Negev\",\n\t  \"street_num\": 2,\n\t  \"city\": \"Airport City\",\n\t  \"type\": \"Coffee\",\n\t  \"country\": \"Israel\",\n      \"lat\": 31.98610904283177,\n      \"lng\": 34.91290658712387,\n      \"dishes\": [\n        {\n          \"name\": \"Chicken Tika\",\n          \"description\": \"An Indian Dish With Carri\",\n          \"pic\": \"http://assets.epicurious.com/photos/54af56b3c4a891cc44cceb29/master/pass/51171400_chicken-tikka-masala_1x1.jpg\",\n          \"ingredients\": [\n            {\n              \"name\": \"carri\",\n              \"quantity\": \"1 spoon\"\n            },\n            {\n              \"name\": \"chicken breast\",\n              \"quantity\": \"4\"\n            },\n            {\n              \"name\": \"rise\",\n              \"quantity\": \"250g\"\n            }\n          ],\n          \"nutritions\": [\n            {\n              \"serving_weight_grams\": 204.525,\n              \"calories\": 305.43,\n              \"total_fat\": 18.78,\n              \"saturated_fat\": 7.33,\n              \"cholesterol\": 95.99,\n              \"sodium\": 270.88,\n              \"total_carbohydrate\": 5.05,\n              \"dietary_fiber\": 2.11,\n              \"sugars\": 1.71,\n              \"protein\": 29.11,\n              \"potassium\": 501.03\n            }\n          ]\n        }\n      ]\n    }\n  ]\n}\n";
+    private String json = "{\n  \"restaurants\": [\n    {\n      \"name\": \"Mono Greek\",\n\t  \"street\": \"Negev\",\n\t  \"street_num\": 2,\n\t  \"city\": \"Airport City\",\n\t  \"type\": \"Greek\",\n\t  \"country\": \"Israel\",\n      \"lat\": 31.985953206105055,\n      \"lng\": 34.912804663181305\n\t},\n    {\n      \"name\": \"Landver\",\n\t  \"street\": \"Negev\",\n\t  \"street_num\": 2,\n\t  \"city\": \"Airport City\",\n\t  \"type\": \"Coffee\",\n\t  \"country\": \"Israel\",\n      \"lat\": 31.98610904283177,\n      \"lng\": 34.91290658712387,\n      \"dishes\": [\n        {\n          \"name\": \"Chicken Tikka\",\n          \"description\": \"An Indian Dish With Carri\",\n          \"pic\": \"http://assets.epicurious.com/photos/54af56b3c4a891cc44cceb29/master/pass/51171400_chicken-tikka-masala_1x1.jpg\",\n\t\t  \"healthAttrs\": [\"High Protein\", \"No Gluten\"],\n          \"ingredients\": [\n            {\n              \"name\": \"carri\",\n              \"quantity\": \"1 spoon\"\n            },\n            {\n              \"name\": \"chicken breast\",\n              \"quantity\": \"4\"\n            },\n            {\n              \"name\": \"rise\",\n              \"quantity\": \"250g\"\n            }\n          ],\n          \"nutritions\":\n            {\n              \"serving_weight_grams\": 204.525,\n              \"calories\": 305.43,\n              \"total_fat\": 18.78,\n              \"saturated_fat\": 7.33,\n              \"cholesterol\": 95.99,\n              \"sodium\": 270.88,\n              \"total_carbohydrate\": 5.05,\n              \"dietary_fiber\": 2.11,\n              \"sugars\": 1.71,\n              \"protein\": 29.11,\n              \"potassium\": 501.03\n            }\n        },\n\t\t{\n          \"name\": \"Nourishing Muesli\",\n          \"description\": \"Pronounced as muse-lee, it is an uncooked mixture of nuts, seeds, grains, dried fruits, and spices\",\n          \"pic\": \"http://nutritionstripped.com/wp-content/uploads/2014/02/nourishing-muesli5-e1392592834715.jpg\",\n\t\t  \"healthAttrs\": [\"High Protein\", \"Good Fat\"],\n          \"ingredients\": [\n            {\n              \"name\": \"rolled oats\",\n              \"quantity\": \"2 cups\"\n            },\n            {\n              \"name\": \"quinoa flakes\",\n              \"quantity\": \"2 cups\"\n            },\n            {\n              \"name\": \"almonds\",\n              \"quantity\": \"1 cup\"\n            },\n\t\t\t{\n              \"name\": \"vanilla extract\",\n              \"quantity\": \"1 teaspoon\"\n            }\n          ],\n          \"nutritions\":\n            {\n              \"serving_weight_grams\": 71.06607,\n\t\t\t  \"calories\": 233.67,\n              \"total_fat\": 13.7,\n              \"saturated_fat\": 2.9,\n              \"cholesterol\": 0,\n              \"sodium\": 318.35,\n              \"total_carbohydrate\": 23.74,\n              \"dietary_fiber\": 4.72,\n              \"sugars\": 8.59,\n              \"protein\": 7.54,\n              \"potassium\": 359.24\n            }\n        }\n      ]\n    }\n  ]\n}\n";
     private JSONObject jObj;
 
     private Storage(){
