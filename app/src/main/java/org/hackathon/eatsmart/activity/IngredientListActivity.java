@@ -53,7 +53,7 @@ public class IngredientListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 /** Getting the checked items from the listview */
-                IngredientListAdapter adbDish = (IngredientListAdapter)listview.getAdapter();
+                IngredientListAdapter dishAdapter = (IngredientListAdapter)listview.getAdapter();
                 SparseBooleanArray checkedItemPositions = listview.getCheckedItemPositions();
                 int itemCount = listview.getCount();
 
@@ -63,13 +63,13 @@ public class IngredientListActivity extends AppCompatActivity {
                     String s = String.valueOf(size);
                     Ingredient tmp = new Ingredient("fff" , s) ;
                     addToListView(tmp);
-                    if( size > 0){
-                        adbDish.lIngredient.remove(i);
+                    if(size > 0){
+                        dishAdapter.removeFromList(i);
 
                     }
                 }
                 checkedItemPositions.clear();
-                adbDish.notifyDataSetChanged();
+                dishAdapter.notifyDataSetChanged();
             }
         };
 
@@ -97,8 +97,8 @@ public class IngredientListActivity extends AppCompatActivity {
 
     public void addToListView(Ingredient ingredient) {
 
-        IngredientListAdapter adbDish = (IngredientListAdapter)listview.getAdapter();
-        adbDish.lIngredient.add(ingredient);
+        IngredientListAdapter dishAdapter = (IngredientListAdapter)listview.getAdapter();
+        dishAdapter.addIngredient(ingredient);
 
     }
 
