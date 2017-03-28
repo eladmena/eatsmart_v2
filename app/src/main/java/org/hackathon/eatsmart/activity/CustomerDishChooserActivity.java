@@ -22,7 +22,7 @@ public class CustomerDishChooserActivity extends AppCompatActivity {
 
         final ListView dishList = (ListView) findViewById(R.id.custDishList);
         final ArrayList<Dish> myListItems = new ArrayList<>();
-        for (int i = 0; i < 12; i++) {
+        for (int i = 1; i < 16; i++) {
             String prefix = i < 10 ? "0" : "";
             myListItems.add(new Dish("Dish" + prefix + i, "Description " + prefix + i));
         }
