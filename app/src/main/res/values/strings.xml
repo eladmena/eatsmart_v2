@@ -6,6 +6,7 @@
 
     <!-- restaurant -->
     <string name="title_activity_restaurant_main">RestaurantMainActivity</string>
+    <string name="guardarBtn">Continue...</string>
     <string name="restaurant_text">Restaurant</string>
 
     <!-- customer -->
