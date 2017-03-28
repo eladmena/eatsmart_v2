@@ -11,9 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import org.hackathon.eatsmart.R;
-import org.hackathon.eatsmart.fragment.dummy.DummyContent;
-import org.hackathon.eatsmart.fragment.dummy.DummyContent.DummyItem;
+import org.hackathon.eatsmart.data.Dish;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -24,9 +24,7 @@ import java.util.List;
  */
 public class DishItemFragment extends Fragment {
 
-    // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
-    // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
 
@@ -37,7 +35,6 @@ public class DishItemFragment extends Fragment {
     public DishItemFragment() {
     }
 
-    // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
     public static DishItemFragment newInstance(int columnCount) {
         DishItemFragment fragment = new DishItemFragment();
@@ -70,11 +67,14 @@ public class DishItemFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyDishItemRecyclerViewAdapter(DummyContent.ITEMS, mListener));
+            // TODO eladmena hardcoded...  needed?
+            List<Dish> tempDishList = new LinkedList<>();
+            tempDishList.add(new Dish("name01", "description 01"));
+            tempDishList.add(new Dish("name02", "description 02"));
+            recyclerView.setAdapter(new MyDishItemRecyclerViewAdapter(tempDishList, mListener));
         }
         return view;
     }
-
 
     @Override
     public void onAttach(Context context) {
@@ -104,7 +104,6 @@ public class DishItemFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnListFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(Dish dish);
     }
 }
