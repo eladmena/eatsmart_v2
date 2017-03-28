@@ -6,6 +6,69 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+
+/*
+{
+  "restaurants": [
+    {
+      "name": "Mono Greek",
+	  "street": "Negev",
+	  "street_num": 2,
+	  "city": "Airport City",
+	  "country": "Israel",
+      "lat": 31.985953206105055,
+      "lng": 34.912804663181305
+	},
+    {
+      "name": "Landver",
+	  "street": "Negev",
+	  "street_num": 2,
+	  "city": "Airport City",
+	  "country": "Israel",
+      "lat": 31.98610904283177,
+      "lng": 34.91290658712387,
+      "dishes": [
+        {
+          "name": "Chicken Tika",
+          "description": "An Indian Dish With Carri",
+          "pic": "http://dishpics/pic/123211",
+          "ingredients": [
+            {
+              "name": "carri",
+              "quantity": "1 spoon"
+            },
+            {
+              "name": "chicken breast",
+              "quantity": "4"
+            },
+            {
+              "name": "rise",
+              "quantity": "250g"
+            }
+          ],
+          "nutritions": [
+            {
+              "serving_weight_grams": 204.525,
+              "calories": 305.43,
+              "total_fat": 18.78,
+              "saturated_fat": 7.33,
+              "cholesterol": 95.99,
+              "sodium": 270.88,
+              "total_carbohydrate": 5.05,
+              "dietary_fiber": 2.11,
+              "sugars": 1.71,
+              "protein": 29.11,
+              "potassium": 501.03
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+*/
+
+
 //Example for how to add new dish
         /*JSONObject newDish = new JSONObject();
         try {
