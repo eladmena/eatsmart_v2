@@ -6,6 +6,35 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+//Example for how to add new dish
+        /*JSONObject newDish = new JSONObject();
+        try {
+            newDish.put("name", "Landver new Salad");
+
+            JSONArray ingrids = new JSONArray();
+            JSONObject ingrid = new JSONObject();
+            ingrid.put("name", "Batata");
+            ingrid.put("quantity", "200g");
+            ingrids.put(ingrid);
+            newDish.put("ingredients", ingrids);
+
+            JSONObject nuts = new JSONObject();
+            nuts.put("calories", 500);
+            newDish.put("nutritions", nuts);
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        Storage.getInstance().addDishToLandver(newDish);
+        Log.d("json:", Storage.getInstance().getLandverRest().toString());
+        try {
+            Toast.makeText(getApplicationContext(), "storage json: " + Storage.getInstance().getLandverRest().get("name"), Toast.LENGTH_SHORT).show();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        */
+
 /**
  * Created by tsadok on 27/03/2017.
  */
