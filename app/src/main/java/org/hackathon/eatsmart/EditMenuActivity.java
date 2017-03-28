@@ -9,10 +9,16 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class EditMenuActivity extends AppCompatActivity {
+
+    Storage AppStorage = Storage.getInstance();
 
     private static Dish[] DISHES = new Dish[] {
             new Dish ("A", "aaa"),
@@ -52,15 +58,31 @@ public class EditMenuActivity extends AppCompatActivity {
             }
         });
 
-        final ListView listview = (ListView) findViewById(R.id.MenuDishList);
         final ArrayList<Dish> myListItems = new ArrayList<>();
-        Collections.addAll(myListItems, DISHES);
+
+//        Collections.addAll(myListItems, DISHES);
+        JSONArray jDishes = AppStorage.getLandverDishes();
+        if (jDishes != null) {
+            for (int i = 0; i < jDishes.length(); i++) {
+                String dishName = "";
+                String dishDesc = "";
+                try {
+                    JSONObject jDish = jDishes.getJSONObject(i);
+                    dishName = jDish.getString("name");
+                    dishDesc = jDish.getString("description");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                myListItems.add(new Dish (dishName, dishDesc));
+            }
+        }
+
         final AdapterDishList adbDish = new AdapterDishList (EditMenuActivity.this, 0, myListItems);
 
+        final ListView listview = (ListView) findViewById(R.id.MenuDishList);
         listview.setAdapter(adbDish);
         listview.setTranscriptMode(ListView.TRANSCRIPT_MODE_NORMAL);
         listview.setStackFromBottom(false);
-
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view,
@@ -70,7 +92,7 @@ public class EditMenuActivity extends AppCompatActivity {
                         .withEndAction(new Runnable() {
                             @Override
                             public void run() {
-                                myListItems.remove(item);
+                                //myListItems.remove(item);
                                 adbDish.notifyDataSetChanged();
                                 view.setAlpha(1);
                             }
