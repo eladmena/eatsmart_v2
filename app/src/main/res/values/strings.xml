@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">eatsmart</string>
+    <string name="app_name">Eat Smart</string>
     <!-- main -->
     <string name="customer_button_text">Customer</string>
     <string name="restaurant_button_text">Restaurant</string>
@@ -17,5 +17,7 @@
     <string name="customer_text">Customer</string>
     <string name="title_activity_customer_restaurant_chooser">Choose Restaurant</string>
     <string name="title_activity_customer_dish_chooser">Choose Dish</string>
+
+    <string name="title_activity_customer_main">CustomerMainActivity</string>
 
 </resources>
