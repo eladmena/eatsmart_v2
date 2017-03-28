@@ -7,11 +7,16 @@ package org.hackathon.eatsmart.data;
 public class Dish {
     private String dishName;
     private String dishDescription;
-    private String imageurl;
+    private String imageUrl;
 
-    public Dish(String dishName, String dishDescription){
+    public Dish(String dishName, String dishDescription) {
+        this(dishName, dishDescription, null);
+    }
+
+    public Dish(String dishName, String dishDescription, String imageUrl) {
         this.dishName = dishName;
         this.dishDescription = dishDescription;
+        this.imageUrl = imageUrl;
     }
 
     public String getDishName() {
@@ -20,5 +25,9 @@ public class Dish {
 
     public String getDishDescription() {
         return dishDescription;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
     }
 }
