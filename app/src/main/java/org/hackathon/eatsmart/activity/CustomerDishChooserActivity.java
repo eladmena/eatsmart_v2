@@ -24,7 +24,7 @@ public class CustomerDishChooserActivity extends AppCompatActivity {
         final ArrayList<Dish> myListItems = new ArrayList<>();
         for (int i = 1; i < 16; i++) {
             String prefix = i < 10 ? "0" : "";
-            myListItems.add(new Dish("Dish" + prefix + i, "Description " + prefix + i));
+            myListItems.add(new Dish("Dish" + prefix + i, "Description " + prefix + i + "\nIt's a bitch to read all this long long text, like didn't you hear of lorem ipsum and all of that?!?"));
         }
 
         final ExtendedDishAdapter dishAdapter = new ExtendedDishAdapter(this, 0, myListItems);
