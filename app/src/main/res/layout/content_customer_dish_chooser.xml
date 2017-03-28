@@ -9,7 +9,7 @@
     tools:showIn="@layout/activity_customer_dish_chooser">
 
     <ListView
-        android:id="@+id/dishList"
+        android:id="@+id/custDishList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="8dp"
