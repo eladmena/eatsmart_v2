@@ -16,14 +16,14 @@ import java.util.ArrayList;
 
 public class AdapterDishList extends ArrayAdapter<Dish> {
     private Activity activity;
-    private ArrayList<Dish> lDish;
+    private ArrayList<Dish> dishList;
     private static LayoutInflater inflater = null;
 
     public AdapterDishList (Activity activity, int textViewResourceId,ArrayList<Dish> _lDish) {
         super(activity, textViewResourceId, _lDish);
         try {
             this.activity = activity;
-            this.lDish = _lDish;
+            this.dishList = _lDish;
 
             inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -33,7 +33,7 @@ public class AdapterDishList extends ArrayAdapter<Dish> {
     }
 
     public int getCount() {
-        return lDish.size();
+        return dishList.size();
     }
 
     public Dish getItem(Dish position) {
@@ -69,7 +69,7 @@ public class AdapterDishList extends ArrayAdapter<Dish> {
 
 
 
-            holder.display_name.setText(lDish.get(position).dish_name);
+            holder.display_name.setText(dishList.get(position).getDishName());
             //holder.display_number.setText(lDish.get(position).number);
 
 

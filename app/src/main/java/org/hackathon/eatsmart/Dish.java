@@ -5,9 +5,20 @@ package org.hackathon.eatsmart;
  */
 
 public class Dish {
-    public String dish_name;
+    private String dishName;
+    private String dishDescription;
+    private String imageurl;
 
-    public Dish(String name){
-        dish_name = name;
+    public Dish(String dishName, String dishDescription){
+        this.dishName = dishName;
+        this.dishDescription = dishDescription;
+    }
+
+    public String getDishName() {
+        return dishName;
+    }
+
+    public String getDishDescription() {
+        return dishDescription;
     }
 }
