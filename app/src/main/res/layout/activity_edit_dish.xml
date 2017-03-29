@@ -72,6 +72,7 @@
                 android:layout_width="410dp"
                 android:layout_height="250dp"
                 android:layout_centerHorizontal="true"
+                android:src="@drawable/no_image_available"
                 android:layout_above="@+id/button_image"/>
 
         </TableRow>

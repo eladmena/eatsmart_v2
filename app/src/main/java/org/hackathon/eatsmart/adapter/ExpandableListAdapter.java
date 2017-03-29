@@ -2,7 +2,8 @@ package org.hackathon.eatsmart.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,7 +78,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return this._listDataChild.get(this.dishList.get(groupPosition))
+        return _listDataChild.get(this.dishList.get(groupPosition))
                 .size();
     }
 
@@ -100,11 +101,11 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded,
                              View convertView, ViewGroup parent) {
         View vi = convertView;
-        final ExtendedDishAdapter.ViewHolder holder;
+        final ExpandableListAdapter.ViewHolder holder;
         try {
             if (convertView == null) {
                 vi = inflater.inflate(R.layout.fragment_dishitem, null);
-                holder = new ExtendedDishAdapter.ViewHolder();
+                holder = new ExpandableListAdapter.ViewHolder();
 
                 holder.dish_name = (TextView) vi.findViewById(R.id.dishName);
                 holder.dish_description = (TextView) vi.findViewById(R.id.dishDescription);
@@ -112,21 +113,18 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
                 vi.setTag(holder);
             } else {
-                holder = (ExtendedDishAdapter.ViewHolder) vi.getTag();
+                holder = (ExpandableListAdapter.ViewHolder) vi.getTag();
             }
 
-            holder.dish_name.setText(dishList.get(groupPosition).getDishName());
-            holder.dish_description.setText(dishList.get(groupPosition).getDishDescription());
-            String imageUrl = dishList.get(groupPosition).getImageUrl();
+            Dish dish = dishList.get(groupPosition);
+            holder.dish_name.setText(dish.getDishName());
+            holder.dish_description.setText(dish.getDishDescription());
+            String imageUrl = dish.getImageUrl();
             if (imageUrl != null) {
-                try {
-//                    holder.dish_image.setImageDrawable(drawableFromUrl(imageUrl));
-//                    holder.dish_image.setImageBitmap(bitmapFromUrl(imageUrl));
-//                    holder.dish_image.setImageURI(Uri.parse(imageUrl));
-//                    holder.dish_image.setImageResource(R.drawable.common_google_signin_btn_icon_dark);
-                } catch (Exception e) {
-                    // do nothing, will not override default image
-                    holder.dish_name.setText(e.getMessage());
+                AsyncTask<String, Void, Drawable> task = new ImageLoaderTask().execute(dish.getImageUrl());
+                Drawable drawable = task.get();
+                if (drawable != null) {
+                    holder.dish_image.setImageDrawable(drawable);
                 }
             }
         } catch (Exception e) {
@@ -144,5 +142,11 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
+    }
+
+    public static class ViewHolder {
+        public TextView dish_name;
+        public TextView dish_description;
+        public ImageView dish_image;
     }
 }

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.hackathon.eatsmart.JsonConstants;
 import org.hackathon.eatsmart.R;
 import org.hackathon.eatsmart.Storage;
 import org.hackathon.eatsmart.adapter.DishAdapter;
@@ -30,11 +31,20 @@ public class EditMenuActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab_add = (FloatingActionButton) findViewById(R.id.fab_add);
+        fab_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent menuIntent = new Intent(getApplicationContext(), EditDishActivity.class);
+                startActivity(menuIntent);
+            }
+        });
+
+        FloatingActionButton fab_done = (FloatingActionButton) findViewById(R.id.fab_done);
+        fab_done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent menuIntent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(menuIntent);
             }
         });
@@ -47,8 +57,8 @@ public class EditMenuActivity extends AppCompatActivity {
             for (int i = 0; i < jDishes.length(); i++) {
                 try {
                     JSONObject jDish = jDishes.getJSONObject(i);
-                    String dishName = jDish.getString("name");
-                    String dishDesc = jDish.getString("description");
+                    String dishName = jDish.getString(JsonConstants.Dish.NAME);
+                    String dishDesc = jDish.getString(JsonConstants.Dish.DESCRIPTION);
                     myListItems.add(new Dish (dishName, dishDesc));
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -1,0 +1,145 @@
+{
+  "restaurants": [
+    {
+      "name": "Cafe Cafe",
+      "street": "Golan",
+      "street_num": 2,
+      "city": "Airport City",
+      "type": "Coffee",
+      "country": "Israel",
+      "lat": 31.986923484483505,
+      "lng": 34.91456151008606,
+      "dishes": []
+    },
+    {
+      "name": "Landver",
+      "street": "Negev",
+      "street_num": 2,
+      "city": "Airport City",
+      "type": "Coffee",
+      "country": "Israel",
+      "lat": 31.98610904283177,
+      "lng": 34.91290658712387,
+      "dishes": [
+        {
+          "name": "Chicken Tikka",
+          "description": "An Indian Dish With Curry",
+          "pic": "http://cdn.pinchofyum.com/wp-content/uploads/one-pot-spanish-chicken-and-potatoes-2-370x370.jpg",
+          "healthAttrs": ["High Protein", "No Gluten"],
+          "restrictions": ["dairy_free", "egg_free", "peanut_free", "seafood_free" ,"sesame_free", "sulfite_free" ,"tree_nut_free", "wheat_free"],
+          "ingredients": [
+            {
+              "name": "carri",
+              "quantity": "1 spoon"
+            },
+            {
+              "name": "chicken breast",
+              "quantity": "4"
+            },
+            {
+              "name": "rise",
+              "quantity": "250g"
+            }
+          ],
+          "nutritions":
+          {
+            "serving_weight_grams": 204.525,
+            "nf_calories": 305.43,
+            "nf_total_fat": 18.78,
+            "nf_saturated_fat": 7.33,
+            "nf_cholesterol": 95.99,
+            "nf_sodium": 270.88,
+            "nf_total_carbohydrate": 5.05,
+            "nf_dietary_fiber": 2.11,
+            "nf_sugars": 1.71,
+            "nf_protein": 29.11,
+            "nf_potassium": 501.03
+          }
+        },
+        {
+          "name": "Nourishing Muesli",
+          "description": "Pronounced as muse-lee, it is an uncooked mixture of nuts, seeds, grains, dried fruits, and spices",
+          "pic": "http://fscomps.fotosearch.com/compc/FDC/FDC005/935023.jpg",
+          "healthAttrs": ["High Protein", "Good Fat"],
+          "restrictions": ["egg_free", "seafood_free" ,"soy_free", "sulfite_free" ,"tree_nut_free", "wheat_free"],
+          "ingredients": [
+            {
+              "name": "rolled oats",
+              "quantity": "2 cups"
+            },
+            {
+              "name": "quinoa flakes",
+              "quantity": "2 cups"
+            },
+            {
+              "name": "almonds",
+              "quantity": "1 cup"
+            },
+            {
+              "name": "vanilla extract",
+              "quantity": "1 teaspoon"
+            }
+          ],
+          "nutritions":
+          {
+            "serving_weight_grams": 71.06607,
+            "nf_calories": 233.67,
+            "nf_total_fat": 13.7,
+            "nf_saturated_fat": 2.9,
+            "nf_cholesterol": 0,
+            "nf_sodium": 318.35,
+            "nf_total_carbohydrate": 23.74,
+            "nf_dietary_fiber": 4.72,
+            "nf_sugars": 8.59,
+            "nf_protein": 7.54,
+            "nf_potassium": 359.24
+          }
+        },
+        {
+          "name": "Pizza Napolitana",
+          "description": "Directly from Italy, simple yet delicious!",
+          "pic": "https://food-fanatic-res.cloudinary.com/iu/s--pKNCNa0u--/t_large/cs_srgb,f_auto,fl_strip_profile.lossy,q_auto:low/v1450889835/no-rise-pizza-dough-photo.jpg",
+          "healthAttrs": ["High Carbs", "High Fat"],
+          "restrictions": ["egg_free", "peanut_free", "seafood_free" ,"sesame_free", "soy_free", "sulfite_free" ,"tree_nut_free"],
+          "ingredients": [],
+          "nutritions":
+          {
+            "serving_weight_grams": 71.06607,
+            "nf_calories": 233.67,
+            "nf_total_fat": 13.7,
+            "nf_saturated_fat": 2.9,
+            "nf_cholesterol": 0,
+            "nf_sodium": 318.35,
+            "nf_total_carbohydrate": 23.74,
+            "nf_dietary_fiber": 4.72,
+            "nf_sugars": 8.59,
+            "nf_protein": 7.54,
+            "nf_potassium": 359.24
+          }
+        },
+        {
+          "name": "Salmon - Dish De Jour",
+          "description": "Pan-Seared Salmon - A Wonderful dish!",
+          "pic": "https://preparednutrition.com/wp-content/uploads/2015/11/Salmon-w-green-beans-lowres-448x210-400x210.jpg",
+          "healthAttrs": ["High Protein", "Low Fat"],
+          "restrictions": ["dairy_free", "egg_free", "gluten_free", "peanut_free", "seafood_free" ,"sesame_free", "sulfite_free" ,"tree_nut_free", "wheat_free"],
+          "ingredients": [],
+          "nutritions":
+          {
+            "serving_weight_grams": 71.06607,
+            "nf_calories": 233.67,
+            "nf_total_fat": 13.7,
+            "nf_saturated_fat": 2.9,
+            "nf_cholesterol": 0,
+            "nf_sodium": 318.35,
+            "nf_total_carbohydrate": 23.74,
+            "nf_dietary_fiber": 4.72,
+            "nf_sugars": 8.59,
+            "nf_protein": 7.54,
+            "nf_potassium": 359.24
+          }
+        }
+      ]
+    }
+  ]
+}

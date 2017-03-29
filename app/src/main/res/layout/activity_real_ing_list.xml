@@ -73,14 +73,15 @@
         <include layout="@layout/content_edit_dish" android:id="@+id/include" />
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/saveBtn"
+            android:id="@+id/fab_done"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignBottom="@+id/btnDel"
-            android:layout_alignRight="@+id/btnDel"
-            android:layout_gravity="bottom|end"
+            android:layout_alignLeft="@+id/btnDel"
+            android:layout_gravity="bottom|start"
             android:layout_margin="@dimen/fab_margin"
-            app:srcCompat="@android:drawable/checkbox_on_background" />
+            android:src="@drawable/ic_done_black_24dp_72"
+            />
 
     </RelativeLayout>
 
