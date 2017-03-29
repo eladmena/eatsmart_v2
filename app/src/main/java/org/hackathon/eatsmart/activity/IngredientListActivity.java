@@ -14,13 +14,17 @@ import org.hackathon.eatsmart.adapter.IngredientListAdapter;
 import org.hackathon.eatsmart.data.Ingredient;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class IngredientListActivity extends AppCompatActivity {
 
     private static ListView listview;
-    private static Ingredient[] ingredients = new Ingredient[] {
+    public static Ingredient[] ingredients = new Ingredient[] {
 
     };
+
+    public static List<Ingredient> allIngredients = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,8 +34,12 @@ public class IngredientListActivity extends AppCompatActivity {
         fab_done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent menuIntent = new Intent(getApplicationContext(), EditMenuActivity.class);
-                startActivity(menuIntent);
+                //Intent menuIntent = new Intent(getApplicationContext(), EditDishActivity.class);
+                //menuIntent.addFlags( Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                //startActivity(menuIntent);
+                //moveTaskToBack(true);
+                EditDishActivity.allIngredients = new ArrayList<>(allIngredients);
+                finish();
             }
         });
 
@@ -44,17 +52,18 @@ public class IngredientListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText edit = (EditText) findViewById(R.id.txtItem);
                 String input = edit.getText().toString();
-                String[] animalsArray = input.split(",");
-                if(animalsArray.length > 1)
+                String[] ingredients = input.split(",");
+                if(ingredients.length > 1)
                 {
-                    String ingName = animalsArray[0];
-                    String quantity = animalsArray[1];
+                    String ingName = ingredients[0];
+                    String quantity = ingredients[1];
                     Ingredient newIngredient = new Ingredient( ingName ,quantity);
+                    allIngredients.add(newIngredient);
                     addToListView(newIngredient);
                     IngredientListAdapter adbDish = (IngredientListAdapter)listview.getAdapter();
                     adbDish.notifyDataSetChanged();
+                    edit.setText("");
                 }
-
             }
         };
 
