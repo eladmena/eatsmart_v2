@@ -23,9 +23,10 @@
       "dishes": [
         {
           "name": "Chicken Tikka",
-          "description": "An Indian Dish With Carri",
+          "description": "An Indian Dish With Curry",
           "pic": "http://cdn.pinchofyum.com/wp-content/uploads/one-pot-spanish-chicken-and-potatoes-2-370x370.jpg",
           "healthAttrs": ["High Protein", "No Gluten"],
+          "restrictions": ["dairy_free", "egg_free", "peanut_free", "seafood_free" ,"sesame_free", "sulfite_free" ,"tree_nut_free", "wheat_free"],
           "ingredients": [
             {
               "name": "carri",
@@ -60,6 +61,7 @@
           "description": "Pronounced as muse-lee, it is an uncooked mixture of nuts, seeds, grains, dried fruits, and spices",
           "pic": "http://fscomps.fotosearch.com/compc/FDC/FDC005/935023.jpg",
           "healthAttrs": ["High Protein", "Good Fat"],
+          "restrictions": ["egg_free", "seafood_free" ,"soy_free", "sulfite_free" ,"tree_nut_free", "wheat_free"],
           "ingredients": [
             {
               "name": "rolled oats",
@@ -98,6 +100,7 @@
           "description": "Directly from Italy, simple yet delicious!",
           "pic": "https://food-fanatic-res.cloudinary.com/iu/s--pKNCNa0u--/t_large/cs_srgb,f_auto,fl_strip_profile.lossy,q_auto:low/v1450889835/no-rise-pizza-dough-photo.jpg",
           "healthAttrs": ["High Carbs", "High Fat"],
+          "restrictions": ["egg_free", "peanut_free", "seafood_free" ,"sesame_free", "soy_free", "sulfite_free" ,"tree_nut_free"],
           "ingredients": [],
           "nutritions":
           {
@@ -119,6 +122,7 @@
           "description": "Pan-Seared Salmon - A Wonderful dish!",
           "pic": "https://preparednutrition.com/wp-content/uploads/2015/11/Salmon-w-green-beans-lowres-448x210-400x210.jpg",
           "healthAttrs": ["High Protein", "Low Fat"],
+          "restrictions": ["dairy_free", "egg_free", "gluten_free", "peanut_free", "seafood_free" ,"sesame_free", "sulfite_free" ,"tree_nut_free", "wheat_free"],
           "ingredients": [],
           "nutritions":
           {

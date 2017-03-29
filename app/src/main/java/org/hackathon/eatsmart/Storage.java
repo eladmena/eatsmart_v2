@@ -20,6 +20,8 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 
 
@@ -130,12 +132,17 @@ public class Storage {
             String name = (String) dishMap.get(JsonConstants.Dish.NAME);
             String description = (String) dishMap.get(JsonConstants.Dish.DESCRIPTION);
             String picUrl = (String) dishMap.get(JsonConstants.Dish.PIC);
-            net.minidev.json.JSONArray healthAttrArray = (net.minidev.json.JSONArray)dishMap.get(JsonConstants.Dish.HEALTH_ATTRIBUTES);
-            Set<String> healthAttributeSet = new HashSet<>(healthAttrArray.size());
-            for (int j = 0; j < healthAttrArray.size(); j++) {
-                healthAttributeSet.add((String)healthAttrArray.get(0));
+            net.minidev.json.JSONArray restrictionsArray = (net.minidev.json.JSONArray)dishMap.get(JsonConstants.Dish.RESTRICTIONS);
+            Set<String> restrictionsSet = new HashSet<>(restrictionsArray.size());
+            for (int j = 0; j < restrictionsArray.size(); j++) {
+                restrictionsSet.add((String)restrictionsArray.get(j));
             }
-            dishList.add(new Dish(name, description, picUrl, healthAttributeSet));
+            LinkedHashMap<String, Object> nutritionValues = (LinkedHashMap<String, Object>)dishMap.get(JsonConstants.Dish.NUTRITIONAL_VALUES);
+            Set<String> nutritionalValueSet = new LinkedHashSet<>(nutritionValues.size());
+            for (Map.Entry<String, Object> entry : nutritionValues.entrySet()) {
+                nutritionalValueSet.add(entry.getKey() + ": " + entry.getValue());
+            }
+            dishList.add(new Dish(name, description, picUrl, restrictionsSet, nutritionalValueSet));
         }
 
         return dishList;
