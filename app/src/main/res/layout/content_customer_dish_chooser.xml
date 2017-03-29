@@ -12,6 +12,7 @@
         android:id="@+id/custDishList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:childDivider="#00000000"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp" />
 </android.support.constraint.ConstraintLayout>
