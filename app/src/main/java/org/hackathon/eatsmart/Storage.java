@@ -1,112 +1,20 @@
 package org.hackathon.eatsmart;
 
+import android.content.res.Resources;
 import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
-/*
-{
-  "restaurants": [
-    {
-      "name": "Mono Greek",
-	  "street": "Negev",
-	  "street_num": 2,
-	  "city": "Airport City",
-	  "type": "Greek",
-	  "country": "Israel",
-      "lat": 31.985953206105055,
-      "lng": 34.912804663181305
-	},
-    {
-      "name": "Landver",
-	  "street": "Negev",
-	  "street_num": 2,
-	  "city": "Airport City",
-	  "type": "Coffee",
-	  "country": "Israel",
-      "lat": 31.98610904283177,
-      "lng": 34.91290658712387,
-      "dishes": [
-        {
-          "name": "Chicken Tikka",
-          "description": "An Indian Dish With Carri",
-          "pic": "http://assets.epicurious.com/photos/54af56b3c4a891cc44cceb29/master/pass/51171400_chicken-tikka-masala_1x1.jpg",
-		  "healthAttrs": ["High Protein", "No Gluten"],
-          "ingredients": [
-            {
-              "name": "carri",
-              "quantity": "1 spoon"
-            },
-            {
-              "name": "chicken breast",
-              "quantity": "4"
-            },
-            {
-              "name": "rise",
-              "quantity": "250g"
-            }
-          ],
-          "nutritions":
-            {
-              "serving_weight_grams": 204.525,
-              "calories": 305.43,
-              "total_fat": 18.78,
-              "saturated_fat": 7.33,
-              "cholesterol": 95.99,
-              "sodium": 270.88,
-              "total_carbohydrate": 5.05,
-              "dietary_fiber": 2.11,
-              "sugars": 1.71,
-              "protein": 29.11,
-              "potassium": 501.03
-            }
-        },
-		{
-          "name": "Nourishing Muesli",
-          "description": "Pronounced as muse-lee, it is an uncooked mixture of nuts, seeds, grains, dried fruits, and spices",
-          "pic": "http://nutritionstripped.com/wp-content/uploads/2014/02/nourishing-muesli5-e1392592834715.jpg",
-		  "healthAttrs": ["High Protein", "Good Fat"],
-          "ingredients": [
-            {
-              "name": "rolled oats",
-              "quantity": "2 cups"
-            },
-            {
-              "name": "quinoa flakes",
-              "quantity": "2 cups"
-            },
-            {
-              "name": "almonds",
-              "quantity": "1 cup"
-            },
-			{
-              "name": "vanilla extract",
-              "quantity": "1 teaspoon"
-            }
-          ],
-          "nutritions":
-            {
-              "serving_weight_grams": 71.06607,
-			  "calories": 233.67,
-              "total_fat": 13.7,
-              "saturated_fat": 2.9,
-              "cholesterol": 0,
-              "sodium": 318.35,
-              "total_carbohydrate": 23.74,
-              "dietary_fiber": 4.72,
-              "sugars": 8.59,
-              "protein": 7.54,
-              "potassium": 359.24
-            }
-        }
-      ]
-    }
-  ]
-}
-*/
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 
 
 //Example for how to add new dish
@@ -148,7 +56,8 @@ public class Storage {
 
     private Storage(){
         try {
-            jObj = new JSONObject(json);
+            jObj = new JSONObject(loadJsonFromResources());
+            //jObj = new JSONObject(json);
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
@@ -207,5 +116,32 @@ public class Storage {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+    }
+
+    private String loadJsonFromResources() {
+        InputStream is = MyApplication.getMyResources().openRawResource(org.hackathon.eatsmart.R.raw.rests);
+        Writer writer = new StringWriter();
+        char[] buffer = new char[1024];
+        try {
+            Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            int n;
+            while ((n = reader.read(buffer)) != -1) {
+                writer.write(buffer, 0, n);
+            }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        String jsonString = writer.toString();
+
+        return jsonString;
     }
 }
