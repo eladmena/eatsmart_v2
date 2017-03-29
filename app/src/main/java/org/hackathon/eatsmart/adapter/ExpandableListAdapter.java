@@ -2,7 +2,8 @@ package org.hackathon.eatsmart.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -115,18 +116,15 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
                 holder = (ExtendedDishAdapter.ViewHolder) vi.getTag();
             }
 
-            holder.dish_name.setText(dishList.get(groupPosition).getDishName());
-            holder.dish_description.setText(dishList.get(groupPosition).getDishDescription());
-            String imageUrl = dishList.get(groupPosition).getImageUrl();
+            Dish dish = dishList.get(groupPosition);
+            holder.dish_name.setText(dish.getDishName());
+            holder.dish_description.setText(dish.getDishDescription());
+            String imageUrl = dish.getImageUrl();
             if (imageUrl != null) {
-                try {
-//                    holder.dish_image.setImageDrawable(drawableFromUrl(imageUrl));
-//                    holder.dish_image.setImageBitmap(bitmapFromUrl(imageUrl));
-//                    holder.dish_image.setImageURI(Uri.parse(imageUrl));
-//                    holder.dish_image.setImageResource(R.drawable.common_google_signin_btn_icon_dark);
-                } catch (Exception e) {
-                    // do nothing, will not override default image
-                    holder.dish_name.setText(e.getMessage());
+                AsyncTask<String, Void, Drawable> task = new ImageLoaderTask().execute(dish.getImageUrl());
+                Drawable drawable = task.get();
+                if (drawable != null) {
+                    holder.dish_image.setImageDrawable(drawable);
                 }
             }
         } catch (Exception e) {

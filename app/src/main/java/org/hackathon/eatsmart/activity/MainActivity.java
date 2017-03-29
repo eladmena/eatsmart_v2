@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 
 import org.hackathon.eatsmart.R;
+import org.hackathon.eatsmart.Storage;
 
 import java.util.Map;
 
