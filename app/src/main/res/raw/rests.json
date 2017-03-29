@@ -1,14 +1,14 @@
 {
   "restaurants": [
     {
-      "name": "Mono Greek",
-      "street": "Negev",
+      "name": "Cafe Cafe",
+      "street": "Golan",
       "street_num": 2,
       "city": "Airport City",
-      "type": "Greek",
+      "type": "Coffee",
       "country": "Israel",
-      "lat": 31.985953206105055,
-      "lng": 34.912804663181305,
+      "lat": 31.986923484483505,
+      "lng": 34.91456151008606,
       "dishes": []
     },
     {
