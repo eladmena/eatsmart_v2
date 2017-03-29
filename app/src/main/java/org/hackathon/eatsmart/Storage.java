@@ -2,111 +2,24 @@ package org.hackathon.eatsmart;
 
 import android.util.Log;
 
+import com.jayway.jsonpath.JsonPath;
+
+import org.hackathon.eatsmart.data.Dish;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
-/*
-{
-  "restaurants": [
-    {
-      "name": "Mono Greek",
-	  "street": "Negev",
-	  "street_num": 2,
-	  "city": "Airport City",
-	  "type": "Greek",
-	  "country": "Israel",
-      "lat": 31.985953206105055,
-      "lng": 34.912804663181305
-	},
-    {
-      "name": "Landver",
-	  "street": "Negev",
-	  "street_num": 2,
-	  "city": "Airport City",
-	  "type": "Coffee",
-	  "country": "Israel",
-      "lat": 31.98610904283177,
-      "lng": 34.91290658712387,
-      "dishes": [
-        {
-          "name": "Chicken Tikka",
-          "description": "An Indian Dish With Carri",
-          "pic": "http://assets.epicurious.com/photos/54af56b3c4a891cc44cceb29/master/pass/51171400_chicken-tikka-masala_1x1.jpg",
-		  "healthAttrs": ["High Protein", "No Gluten"],
-          "ingredients": [
-            {
-              "name": "carri",
-              "quantity": "1 spoon"
-            },
-            {
-              "name": "chicken breast",
-              "quantity": "4"
-            },
-            {
-              "name": "rise",
-              "quantity": "250g"
-            }
-          ],
-          "nutritions":
-            {
-              "serving_weight_grams": 204.525,
-              "calories": 305.43,
-              "total_fat": 18.78,
-              "saturated_fat": 7.33,
-              "cholesterol": 95.99,
-              "sodium": 270.88,
-              "total_carbohydrate": 5.05,
-              "dietary_fiber": 2.11,
-              "sugars": 1.71,
-              "protein": 29.11,
-              "potassium": 501.03
-            }
-        },
-		{
-          "name": "Nourishing Muesli",
-          "description": "Pronounced as muse-lee, it is an uncooked mixture of nuts, seeds, grains, dried fruits, and spices",
-          "pic": "http://nutritionstripped.com/wp-content/uploads/2014/02/nourishing-muesli5-e1392592834715.jpg",
-		  "healthAttrs": ["High Protein", "Good Fat"],
-          "ingredients": [
-            {
-              "name": "rolled oats",
-              "quantity": "2 cups"
-            },
-            {
-              "name": "quinoa flakes",
-              "quantity": "2 cups"
-            },
-            {
-              "name": "almonds",
-              "quantity": "1 cup"
-            },
-			{
-              "name": "vanilla extract",
-              "quantity": "1 teaspoon"
-            }
-          ],
-          "nutritions":
-            {
-              "serving_weight_grams": 71.06607,
-			  "calories": 233.67,
-              "total_fat": 13.7,
-              "saturated_fat": 2.9,
-              "cholesterol": 0,
-              "sodium": 318.35,
-              "total_carbohydrate": 23.74,
-              "dietary_fiber": 4.72,
-              "sugars": 8.59,
-              "protein": 7.54,
-              "potassium": 359.24
-            }
-        }
-      ]
-    }
-  ]
-}
-*/
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.Set;
 
 
 //Example for how to add new dish
@@ -143,10 +56,10 @@ import org.json.JSONObject;
  */
 public class Storage {
     private static Storage mInstance = null;
-    private String json = "{\n  \"restaurants\": [\n    {\n      \"name\": \"Mono Greek\",\n\t  \"street\": \"Negev\",\n\t  \"street_num\": 2,\n\t  \"city\": \"Airport City\",\n\t  \"type\": \"Greek\",\n\t  \"country\": \"Israel\",\n      \"lat\": 31.985953206105055,\n      \"lng\": 34.912804663181305\n\t},\n    {\n      \"name\": \"Landver\",\n\t  \"street\": \"Negev\",\n\t  \"street_num\": 2,\n\t  \"city\": \"Airport City\",\n\t  \"type\": \"Coffee\",\n\t  \"country\": \"Israel\",\n      \"lat\": 31.98610904283177,\n      \"lng\": 34.91290658712387,\n      \"dishes\": [\n        {\n          \"name\": \"Chicken Tikka\",\n          \"description\": \"An Indian Dish With Carri\",\n          \"pic\": \"http://assets.epicurious.com/photos/54af56b3c4a891cc44cceb29/master/pass/51171400_chicken-tikka-masala_1x1.jpg\",\n\t\t  \"healthAttrs\": [\"High Protein\", \"No Gluten\"],\n          \"ingredients\": [\n            {\n              \"name\": \"carri\",\n              \"quantity\": \"1 spoon\"\n            },\n            {\n              \"name\": \"chicken breast\",\n              \"quantity\": \"4\"\n            },\n            {\n              \"name\": \"rise\",\n              \"quantity\": \"250g\"\n            }\n          ],\n          \"nutritions\":\n            {\n              \"serving_weight_grams\": 204.525,\n              \"calories\": 305.43,\n              \"total_fat\": 18.78,\n              \"saturated_fat\": 7.33,\n              \"cholesterol\": 95.99,\n              \"sodium\": 270.88,\n              \"total_carbohydrate\": 5.05,\n              \"dietary_fiber\": 2.11,\n              \"sugars\": 1.71,\n              \"protein\": 29.11,\n              \"potassium\": 501.03\n            }\n        },\n\t\t{\n          \"name\": \"Nourishing Muesli\",\n          \"description\": \"Pronounced as muse-lee, it is an uncooked mixture of nuts, seeds, grains, dried fruits, and spices\",\n          \"pic\": \"http://nutritionstripped.com/wp-content/uploads/2014/02/nourishing-muesli5-e1392592834715.jpg\",\n\t\t  \"healthAttrs\": [\"High Protein\", \"Good Fat\"],\n          \"ingredients\": [\n            {\n              \"name\": \"rolled oats\",\n              \"quantity\": \"2 cups\"\n            },\n            {\n              \"name\": \"quinoa flakes\",\n              \"quantity\": \"2 cups\"\n            },\n            {\n              \"name\": \"almonds\",\n              \"quantity\": \"1 cup\"\n            },\n\t\t\t{\n              \"name\": \"vanilla extract\",\n              \"quantity\": \"1 teaspoon\"\n            }\n          ],\n          \"nutritions\":\n            {\n              \"serving_weight_grams\": 71.06607,\n\t\t\t  \"calories\": 233.67,\n              \"total_fat\": 13.7,\n              \"saturated_fat\": 2.9,\n              \"cholesterol\": 0,\n              \"sodium\": 318.35,\n              \"total_carbohydrate\": 23.74,\n              \"dietary_fiber\": 4.72,\n              \"sugars\": 8.59,\n              \"protein\": 7.54,\n              \"potassium\": 359.24\n            }\n        }\n      ]\n    }\n  ]\n}\n";
+    private static String json;
     private JSONObject jObj;
 
-    private Storage(){
+    private Storage() {
         try {
             jObj = new JSONObject(json);
         } catch (JSONException e) {
@@ -154,19 +67,18 @@ public class Storage {
         }
     }
 
-    public static Storage getInstance(){
-        if(mInstance == null)
-        {
+    public static Storage getInstance() {
+        if (mInstance == null) {
             mInstance = new Storage();
         }
         return mInstance;
     }
 
-    public JSONObject getJson(){
+    public JSONObject getJson() {
         return this.jObj;
     }
 
-    public void setJson(JSONObject jObj){
+    public void setJson(JSONObject jObj) {
         this.jObj = jObj;
     }
 
@@ -174,12 +86,11 @@ public class Storage {
         try {
             JSONArray rests = jObj.getJSONArray("restaurants");
 
-            for(int i = 0; i < rests.length(); i++) {
+            for (int i = 0; i < rests.length(); i++) {
                 JSONObject rest = rests.getJSONObject(i);
-                if (rest.getString("name").equals("Landver")){
+                if (rest.getString("name").equals("Landver")) {
                     return rest;
                 }
-
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -208,4 +119,46 @@ public class Storage {
             e.printStackTrace();
         }
     }
+
+    public ArrayList<Dish> getRestaurantDishes(String restName) {
+        net.minidev.json.JSONArray dishesJsonArray = JsonPath.read(json, "$.restaurants[?(@.name == '" + restName + "')].dishes");
+
+        ArrayList<Dish> dishList = new ArrayList<>();
+        dishesJsonArray = (net.minidev.json.JSONArray) dishesJsonArray.get(0); // getInnerArray
+        for (int i = 0; i < dishesJsonArray.size(); i++) {
+            LinkedHashMap<String, Object> dishMap = (LinkedHashMap<String, Object>) dishesJsonArray.get(i);
+            String name = (String) dishMap.get(JsonConstants.Dish.NAME);
+            String description = (String) dishMap.get(JsonConstants.Dish.DESCRIPTION);
+            String picUrl = (String) dishMap.get(JsonConstants.Dish.PIC);
+            net.minidev.json.JSONArray healthAttrArray = (net.minidev.json.JSONArray)dishMap.get(JsonConstants.Dish.HEALTH_ATTRIBUTES);
+            Set<String> healthAttributeSet = new HashSet<>(healthAttrArray.size());
+            for (int j = 0; j < healthAttrArray.size(); j++) {
+                healthAttributeSet.add((String)healthAttrArray.get(0));
+            }
+            dishList.add(new Dish(name, description, picUrl, healthAttributeSet));
+        }
+
+        return dishList;
+    }
+
+    public static void init(InputStream is) {
+        Writer writer = null;
+        try {
+            writer = new StringWriter();
+            char[] buffer = new char[1024];
+            try {
+                Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+                int n;
+                while ((n = reader.read(buffer)) != -1) {
+                    writer.write(buffer, 0, n);
+                }
+            } finally {
+                is.close();
+            }
+        } catch (IOException e) {
+        }
+
+        json = writer.toString();
+    }
+
 }
