@@ -1,5 +1,6 @@
 package org.hackathon.eatsmart;
 
+import android.content.res.Resources;
 import android.util.Log;
 
 import com.jayway.jsonpath.JsonPath;
@@ -9,6 +10,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -61,7 +70,8 @@ public class Storage {
 
     private Storage() {
         try {
-            jObj = new JSONObject(json);
+            jObj = new JSONObject(loadJsonFromResources());
+            //jObj = new JSONObject(json);
         } catch (JSONException e) {
             Log.e("JSON Parser", "Error parsing data " + e.toString());
         }
@@ -141,24 +151,30 @@ public class Storage {
         return dishList;
     }
 
-    public static void init(InputStream is) {
-        Writer writer = null;
+    private String loadJsonFromResources() {
+        InputStream is = MyApplication.getMyResources().openRawResource(org.hackathon.eatsmart.R.raw.rests);
+        Writer writer = new StringWriter();
+        char[] buffer = new char[1024];
         try {
-            writer = new StringWriter();
-            char[] buffer = new char[1024];
-            try {
-                Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
-                int n;
-                while ((n = reader.read(buffer)) != -1) {
-                    writer.write(buffer, 0, n);
-                }
-            } finally {
-                is.close();
+            Reader reader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
+            int n;
+            while ((n = reader.read(buffer)) != -1) {
+                writer.write(buffer, 0, n);
             }
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
-        json = writer.toString();
-    }
+        String jsonString = writer.toString();
 
+        return jsonString;
+    }
 }

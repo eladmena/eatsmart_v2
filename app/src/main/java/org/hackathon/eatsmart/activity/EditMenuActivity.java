@@ -30,11 +30,20 @@ public class EditMenuActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton fab_add = (FloatingActionButton) findViewById(R.id.fab_add);
+        fab_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent menuIntent = new Intent(getApplicationContext(), EditDishActivity.class);
+                startActivity(menuIntent);
+            }
+        });
+
+        FloatingActionButton fab_done = (FloatingActionButton) findViewById(R.id.fab_done);
+        fab_done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent menuIntent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(menuIntent);
             }
         });
