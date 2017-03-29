@@ -3,9 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="org.hackathon.eatsmart.activity.EditRestaurantActivity">
+
     <LinearLayout
-        android:layout_width="368dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:layout_editor_absoluteX="8dp"
@@ -51,9 +53,7 @@
 
             <TableRow
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp">
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/cityRestName"
@@ -66,8 +66,7 @@
 
             <TableRow
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp">
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/streetRestName"
@@ -80,8 +79,7 @@
 
             <TableRow
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp">
+                android:layout_height="wrap_content">
 
                 <EditText
                     android:id="@+id/streetNumberRestName"
@@ -95,8 +93,7 @@
 
             <TableRow
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp">
+                android:layout_height="wrap_content">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -109,7 +106,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="Restaurant type"
-                        android:textSize="16sp" />
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -128,8 +125,30 @@
             android:id="@+id/applyBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="@string/guardarBtn" />
+            android:layout_margin="18dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:background="@drawable/my_button_bg"
+            android:fontFamily="casual"
+            android:textAllCaps="false"
+            android:text="@string/guardarBtn"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+
+        <ImageView
+            android:id="@+id/imageResturant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="bottom"
+            android:src="@drawable/manu_board">
+
+        </ImageView>
+
+
     </LinearLayout>
+
 
 </android.support.design.widget.CoordinatorLayout>

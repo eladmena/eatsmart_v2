@@ -15,6 +15,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //R.drawable.mainover1.setAlpha(30);
+        //View v = this.findViewById(this->get)
+
         Button cutomerButton = (Button) findViewById(R.id.customerBtn);
         cutomerButton.setOnClickListener(new View.OnClickListener() {
             @Override
