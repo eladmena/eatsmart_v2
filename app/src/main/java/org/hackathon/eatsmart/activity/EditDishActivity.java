@@ -9,12 +9,17 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ListView;
 
 import org.hackathon.eatsmart.R;
+import org.hackathon.eatsmart.adapter.ExpandableListAdapter;
+import org.hackathon.eatsmart.adapter.NutritionAdapter;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class EditDishActivity extends AppCompatActivity {
 
@@ -34,7 +39,7 @@ public class EditDishActivity extends AppCompatActivity {
             }
         });
 
-
+        fillNutEmpty();
         //Adding photo
         Button takePictureButton = (Button) findViewById(R.id.addPhoto);
 
@@ -56,6 +61,29 @@ public class EditDishActivity extends AppCompatActivity {
 
         // }
 
+
+    }
+
+    private void fillNutEmpty() {
+        String nutrition[] = {"Serving weight grams: 0",
+                "Calories: 0",
+                "Total fat: 0",
+                "Saturated fat: 0",
+                "Cholesterol: 0",
+                "Sodium: 0",
+                "Total carbohydrate: 0",
+                "Dietary fiber: 0",
+                "Sugars: 0",
+                "Protein: 0",
+                "Potassium: 0"};
+        ArrayList<String> nut = new ArrayList<String>();
+        for(int j=0; j< nutrition.length; j++)
+        {
+            nut.add(nutrition[j]);
+        }
+        NutritionAdapter nutAdapter = new NutritionAdapter(this,0, nut);
+        ListView nutList = (ListView) findViewById(R.id.list_edit_dish_nut);
+        nutList.setAdapter(nutAdapter);
 
     }
 
