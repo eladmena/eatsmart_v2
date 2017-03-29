@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:windowSoftInputMode="stateHidden|adjustResize">
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,10 +19,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.RestaurantMainActivity"
-            android:label="@string/title_activity_restaurant_main"
-            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.CustomerMainActivity"
             android:label="@string/title_activity_customer_main"

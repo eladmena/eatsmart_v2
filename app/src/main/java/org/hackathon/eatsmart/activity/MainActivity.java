@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         restaurantButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent menuIntent = new Intent(getApplicationContext(), RestaurantMainActivity.class);
+                Intent menuIntent = new Intent(getApplicationContext(), EditRestaurantActivity.class);
                 startActivity(menuIntent);
             }
         });
