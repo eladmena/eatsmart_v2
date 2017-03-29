@@ -20,4 +20,8 @@
 
     <string name="title_activity_customer_main">CustomerMainActivity</string>
 
+    <string name="food_filtering">Food Type Filtering</string>
+    <string name="about">About</string>
+    <string name="user_filters">User Filters</string>
+
 </resources>

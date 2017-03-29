@@ -23,28 +23,6 @@ public class EditMenuActivity extends AppCompatActivity {
 
     Storage AppStorage = Storage.getInstance();
 
-    private static Dish[] DISHES = new Dish[] {
-            new Dish ("A", "aaa"),
-            new Dish ("B", "bbb"),
-            new Dish ("C", "ccc"),
-            new Dish ("D", "ddd"),
-            new Dish ("E", "eee"),
-            new Dish ("F", "fff"),
-            new Dish ("G", "ggg"),
-            new Dish ("H", "hhh"),
-            new Dish ("I", "iii"),
-            new Dish ("I", "iii"),
-            new Dish ("I", "iii"),
-            new Dish ("I", "iii"),
-            new Dish ("I", "iii"),
-            new Dish ("I", "iii"),
-            new Dish ("I", "iii"),
-            new Dish ("I", "iii"),
-            new Dish ("I", "iii"),
-            new Dish ("I", "iii"),
-            new Dish ("End", "end is the end"),
-    };
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,16 +45,14 @@ public class EditMenuActivity extends AppCompatActivity {
         JSONArray jDishes = AppStorage.getLandverDishes();
         if (jDishes != null) {
             for (int i = 0; i < jDishes.length(); i++) {
-                String dishName = "";
-                String dishDesc = "";
                 try {
                     JSONObject jDish = jDishes.getJSONObject(i);
-                    dishName = jDish.getString("name");
-                    dishDesc = jDish.getString("description");
+                    String dishName = jDish.getString("name");
+                    String dishDesc = jDish.getString("description");
+                    myListItems.add(new Dish (dishName, dishDesc));
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                myListItems.add(new Dish (dishName, dishDesc));
             }
         }
 
