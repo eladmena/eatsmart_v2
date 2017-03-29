@@ -3,7 +3,6 @@ package org.hackathon.eatsmart.activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.ExpandableListView;
 import android.widget.Toast;
@@ -21,11 +20,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class CustomerDishChooserActivity extends AppCompatActivity {
+public class CustomerDishChooserActivity extends AppCompactActivityWithOptionMenu {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
         setContentView(R.layout.activity_customer_dish_chooser);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
