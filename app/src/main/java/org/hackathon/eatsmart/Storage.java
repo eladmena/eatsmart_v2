@@ -122,6 +122,15 @@ public class Storage {
         }
     }
 
+    public Set<String> getRestaurantNames() {
+        net.minidev.json.JSONArray restaurantsArray = JsonPath.read(jObj.toString(), "$.restaurants");
+        Set<String> restNames = new HashSet<>(restaurantsArray.size());
+        for (int i = 0; i < restaurantsArray.size(); i++) {
+            restNames.add((String)((Map)restaurantsArray.get(i)).get(JsonConstants.Restaurant.NAME));
+        }
+        return restNames;
+    }
+
     public ArrayList<Dish> getRestaurantDishes(String restName) {
         net.minidev.json.JSONArray dishesJsonArray = JsonPath.read(jObj.toString(), "$.restaurants[?(@.name == '" + restName + "')].dishes");
 
@@ -133,10 +142,7 @@ public class Storage {
             String description = (String) dishMap.get(JsonConstants.Dish.DESCRIPTION);
             String picUrl = (String) dishMap.get(JsonConstants.Dish.PIC);
             net.minidev.json.JSONArray restrictionsArray = (net.minidev.json.JSONArray)dishMap.get(JsonConstants.Dish.RESTRICTIONS);
-            Set<String> restrictionsSet = new HashSet<>(restrictionsArray.size());
-            for (int j = 0; j < restrictionsArray.size(); j++) {
-                restrictionsSet.add((String)restrictionsArray.get(j));
-            }
+            Set<String> restrictionsSet = convertJsonArrayToSet(restrictionsArray);
             LinkedHashMap<String, Object> nutritionValues = (LinkedHashMap<String, Object>)dishMap.get(JsonConstants.Dish.NUTRITIONAL_VALUES);
             Set<String> nutritionalValueSet = new LinkedHashSet<>(nutritionValues.size());
             for (Map.Entry<String, Object> entry : nutritionValues.entrySet()) {
@@ -147,6 +153,15 @@ public class Storage {
 
         return dishList;
     }
+
+    private Set<String> convertJsonArrayToSet(net.minidev.json.JSONArray stringArray) {
+        Set<String> stringSet = new HashSet<>(stringArray.size());
+        for (int i = 0; i < stringArray.size(); i++) {
+            stringSet.add((String)stringArray.get(i));
+        }
+        return stringSet;
+    }
+
 
     private String loadJsonFromResources() {
         InputStream is = MyApplication.getMyResources().openRawResource(org.hackathon.eatsmart.R.raw.rests);

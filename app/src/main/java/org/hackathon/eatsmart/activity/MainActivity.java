@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.Button;
 
 import org.hackathon.eatsmart.R;
-import org.hackathon.eatsmart.Storage;
+import org.hackathon.eatsmart.adapter.ImageLoaderTask;
 
 import java.util.Map;
 
@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        new ImageLoaderTask().execute();
         setContentView(R.layout.activity_main);
         PreferenceManager.setDefaultValues(this,R.xml.food_filtering,false);
 

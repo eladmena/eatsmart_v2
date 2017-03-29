@@ -43,6 +43,7 @@ public class CustomerDishChooserActivity extends AppCompatActivity {
         String restName = getIntent().getStringExtra("restName");
 
         ArrayList<Dish> restaurantDishes = Storage.getInstance().getRestaurantDishes(restName);
+        int totalRestDishes = restaurantDishes.size();
         filterDishes(restaurantDishes, restrictions);
 
         final ExpandableListView expListView = (ExpandableListView) findViewById(R.id.custDishList);
@@ -51,11 +52,13 @@ public class CustomerDishChooserActivity extends AppCompatActivity {
             listDataChild.put(restaurantDish, new ArrayList<>(restaurantDish.getNutritionalValues()));
         }
 
-        final ExpandableListAdapter dishAdapter = new ExpandableListAdapter(this, restaurantDishes, listDataChild);
+        final ExpandableListAdapter dishAdapter = new ExpandableListAdapter(this, restaurantDishes, listDataChild, restName);
         expListView.setAdapter(dishAdapter);
 
-        if (listDataChild.size() == 0) {
-        Toast.makeText(getApplicationContext(), "No dishes match user's health filter.", Toast.LENGTH_LONG).show();
+        if (listDataChild.isEmpty()) {
+            String message = totalRestDishes == 0 ? ("No dishes for " + restName) : "No dishes match user's health filter"; // TODO I18N
+            message += ", try a different restaurant.";
+            Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
         }
     }
 
