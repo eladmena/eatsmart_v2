@@ -24,7 +24,7 @@
         {
           "name": "Chicken Tikka",
           "description": "An Indian Dish With Carri",
-          "pic": "http://assets.epicurious.com/photos/54af56b3c4a891cc44cceb29/master/pass/51171400_chicken-tikka-masala_1x1.jpg",
+          "pic": "http://cdn.pinchofyum.com/wp-content/uploads/one-pot-spanish-chicken-and-potatoes-2-370x370.jpg",
           "healthAttrs": ["High Protein", "No Gluten"],
           "ingredients": [
             {
@@ -58,7 +58,7 @@
         {
           "name": "Nourishing Muesli",
           "description": "Pronounced as muse-lee, it is an uncooked mixture of nuts, seeds, grains, dried fruits, and spices",
-          "pic": "http://nutritionstripped.com/wp-content/uploads/2014/02/nourishing-muesli5-e1392592834715.jpg",
+          "pic": "http://fscomps.fotosearch.com/compc/FDC/FDC005/935023.jpg",
           "healthAttrs": ["High Protein", "Good Fat"],
           "ingredients": [
             {
@@ -96,7 +96,7 @@
         {
           "name": "Pizza Napolitana",
           "description": "Directly from Italy, simple yet delicious!",
-          "pic": "http://arcdn.ar-cdn.com/recipes/xlarge/7e88624a-0ddb-4972-862b-222a9c61c89c.jpg",
+          "pic": "https://food-fanatic-res.cloudinary.com/iu/s--pKNCNa0u--/t_large/cs_srgb,f_auto,fl_strip_profile.lossy,q_auto:low/v1450889835/no-rise-pizza-dough-photo.jpg",
           "healthAttrs": ["High Carbs", "High Fat"],
           "ingredients": [],
           "nutritions":
@@ -117,7 +117,7 @@
         {
           "name": "Salmon - Dish De Jour",
           "description": "Pan-Seared Salmon - A Wonderful dish!",
-          "pic": "http://vegasmagazine.com/get/files/image/galleries/3829_content_083_VEGJXF10-1.jpg",
+          "pic": "https://preparednutrition.com/wp-content/uploads/2015/11/Salmon-w-green-beans-lowres-448x210-400x210.jpg",
           "healthAttrs": ["High Protein", "Low Fat"],
           "ingredients": [],
           "nutritions":
