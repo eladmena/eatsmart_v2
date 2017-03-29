@@ -15,6 +15,7 @@ public class MainActivity extends AppCompactActivityWithOptionMenu {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         PreferenceManager.setDefaultValues(this,R.xml.food_filtering,false);
+        PreferenceManager.getDefaultSharedPreferences(this).edit().clear();
 
         //R.drawable.mainover1.setAlpha(30);
         //View v = this.findViewById(this->get)
