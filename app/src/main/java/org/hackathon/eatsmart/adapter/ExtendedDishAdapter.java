@@ -22,12 +22,18 @@ import java.util.ArrayList;
 
 public class ExtendedDishAdapter extends ArrayAdapter<Dish> {
     private ArrayList<Dish> dishList;
+    private ArrayList<AsyncTask<String, Void, Drawable>> tasks;
     private static LayoutInflater inflater = null;
 
     public ExtendedDishAdapter(Activity activity, int textViewResourceId, ArrayList<Dish> dishList) {
         super(activity, textViewResourceId, dishList);
         try {
             this.dishList = dishList;
+            tasks = new ArrayList<>(dishList.size());
+
+            for (Dish dish : dishList) {
+                tasks.add(new ImageLoaderTask().execute(dish.getImageUrl()));
+            }
 
             inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
@@ -74,13 +80,12 @@ public class ExtendedDishAdapter extends ArrayAdapter<Dish> {
             holder.dish_name.setText(dishList.get(position).getDishName());
             holder.dish_description.setText(dishList.get(position).getDishDescription());
             String imageUrl = dishList.get(position).getImageUrl();
-            if (imageUrl != null) {
-                AsyncTask<String, Void, Drawable> execute = new ImageLoaderTask().execute(imageUrl);
-                Drawable drawable = execute.get();
+//            if (imageUrl != null) {
+                Drawable drawable = tasks.get(position).get();
                 if (drawable != null) {
                     holder.dish_image.setImageDrawable(drawable);
                 }
-            }
+//            }
         } catch (Exception e) {
         }
         return vi;
