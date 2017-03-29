@@ -123,12 +123,8 @@ public class Storage {
     }
 
     public Set<String> getRestaurantNames() {
-        net.minidev.json.JSONArray restaurantsArray = JsonPath.read(jObj.toString(), "$.restaurants");
-        Set<String> restNames = new HashSet<>(restaurantsArray.size());
-        for (int i = 0; i < restaurantsArray.size(); i++) {
-            restNames.add((String)((Map)restaurantsArray.get(i)).get(JsonConstants.Restaurant.NAME));
-        }
-        return restNames;
+        net.minidev.json.JSONArray restaurantsArray = JsonPath.read(jObj.toString(), "$.restaurants[*].name");
+        return convertJsonArrayToSet(restaurantsArray);
     }
 
     public ArrayList<Dish> getRestaurantDishes(String restName) {
