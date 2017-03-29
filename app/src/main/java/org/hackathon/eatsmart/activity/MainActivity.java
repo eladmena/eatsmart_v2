@@ -26,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
         Storage.init(getResources().openRawResource(R.raw.restaurants));
         PreferenceManager.setDefaultValues(this,R.xml.food_filtering,false);
 
+        //R.drawable.mainover1.setAlpha(30);
+        //View v = this.findViewById(this->get)
+
         Button cutomerButton = (Button) findViewById(R.id.customerBtn);
         cutomerButton.setOnClickListener(new View.OnClickListener() {
             @Override
