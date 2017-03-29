@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:windowSoftInputMode="stateHidden|adjustResize"
+        android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
         android:name=".MyApplication">
         <activity android:name=".activity.MainActivity">
             <intent-filter>
@@ -35,6 +35,7 @@
         <activity
             android:name=".activity.EditDishActivity"
             android:label="@string/title_activity_edit_dish"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyAVV4tsOIo_EFPspHN5BC3XXvoh1CAf-nk"/>
