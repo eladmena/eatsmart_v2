@@ -4,9 +4,10 @@ package org.hackathon.eatsmart;
  * Created by menashee on 29/03/2017.
  */
 
-interface JsonConstants {
+public interface JsonConstants {
 
     interface Restaurant {
+        String RESTAURANTS = "restaurants";
         String NAME = "name";
         String STREET = "street";
         String STREET_NUM = "street_num";

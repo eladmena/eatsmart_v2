@@ -1,6 +1,5 @@
 package org.hackathon.eatsmart;
 
-import android.content.res.Resources;
 import android.util.Log;
 
 import com.jayway.jsonpath.JsonPath;
@@ -18,13 +17,6 @@ import java.io.Reader;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.io.Writer;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StringWriter;
-import java.io.Writer;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -34,12 +26,12 @@ import java.util.Set;
 //Example for how to add new dish
         /*JSONObject newDish = new JSONObject();
         try {
-            newDish.put("name", "Landver new Salad");
+            newDish.put(JsonConstants.Dish.NAME, "Landver new Salad");
 
             JSONArray ingrids = new JSONArray();
             JSONObject ingrid = new JSONObject();
-            ingrid.put("name", "Batata");
-            ingrid.put("quantity", "200g");
+            ingrid.put(JsonConstants.Ingredient.NAME, "Batata");
+            ingrid.put(JsonConstants.Ingredient.QUANTITY, "200g");
             ingrids.put(ingrid);
             newDish.put("ingredients", ingrids);
 
@@ -54,7 +46,7 @@ import java.util.Set;
         Storage.getInstance().addDishToLandver(newDish);
         Log.d("json:", Storage.getInstance().getLandverRest().toString());
         try {
-            Toast.makeText(getApplicationContext(), "storage json: " + Storage.getInstance().getLandverRest().get("name"), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "storage json: " + Storage.getInstance().getLandverRest().get(JsonConstants.Restaurant.NAME), Toast.LENGTH_SHORT).show();
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -93,11 +85,11 @@ public class Storage {
 
     public JSONObject getLandverRest() {
         try {
-            JSONArray rests = jObj.getJSONArray("restaurants");
+            JSONArray rests = jObj.getJSONArray(JsonConstants.Restaurant.RESTAURANTS);
 
             for (int i = 0; i < rests.length(); i++) {
                 JSONObject rest = rests.getJSONObject(i);
-                if (rest.getString("name").equals("Landver")) {
+                if (rest.getString(JsonConstants.Restaurant.NAME).equals("Landver")) {
                     return rest;
                 }
             }

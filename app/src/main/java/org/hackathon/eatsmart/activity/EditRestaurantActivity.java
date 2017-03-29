@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import org.hackathon.eatsmart.JsonConstants;
 import org.hackathon.eatsmart.Storage;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,7 +43,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
     {
         Spinner mySpinner = (Spinner) findViewById(R.id.restTypes);
 
-        mySpinner.setAdapter(new ArrayAdapter<RestaurantType>(this, android.R.layout.simple_spinner_item, RestaurantType.values()));
+        mySpinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, RestaurantType.values()));
         mySpinner.setSelection(3, true);
     }
 
@@ -50,11 +51,11 @@ public class EditRestaurantActivity extends AppCompatActivity {
     {
         JSONObject rest = Storage.getInstance().getLandverRest();
         try {
-            SetText((TextView)findViewById(R.id.cityRestName),rest.getString("city"));
-            SetText((TextView)findViewById(R.id.restName),rest.getString("name"));
-            SetText((TextView)findViewById(R.id.streetNumberRestName),rest.getString("street_num"));
-            SetText((TextView)findViewById(R.id.streetRestName),rest.getString("street"));
-            setSpinnerSelection(rest.getString("type"));
+            SetText((TextView)findViewById(R.id.restName),rest.getString(JsonConstants.Restaurant.NAME));
+            SetText((TextView)findViewById(R.id.cityRestName),rest.getString(JsonConstants.Restaurant.CITY));
+            SetText((TextView)findViewById(R.id.streetRestName),rest.getString(JsonConstants.Restaurant.STREET));
+            SetText((TextView)findViewById(R.id.streetNumberRestName),rest.getString(JsonConstants.Restaurant.STREET_NUM));
+            setSpinnerSelection(rest.getString(JsonConstants.Restaurant.TYPE));
         }catch (JSONException e) {
             e.printStackTrace();
         }
@@ -75,7 +76,7 @@ public class EditRestaurantActivity extends AppCompatActivity {
         for (RestaurantType rest : RestaurantType.values()) {
             if(rest.toString().equals(selected))
             {
-                mySpinner.setAdapter(new ArrayAdapter<RestaurantType>(this, android.R.layout.simple_spinner_item, RestaurantType.values()));
+                mySpinner.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, RestaurantType.values()));
                 mySpinner.setSelection(i, true);
                 break;
             }

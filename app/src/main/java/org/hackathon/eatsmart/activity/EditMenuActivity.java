@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import org.hackathon.eatsmart.JsonConstants;
 import org.hackathon.eatsmart.R;
 import org.hackathon.eatsmart.Storage;
 import org.hackathon.eatsmart.adapter.DishAdapter;
@@ -56,8 +57,8 @@ public class EditMenuActivity extends AppCompatActivity {
             for (int i = 0; i < jDishes.length(); i++) {
                 try {
                     JSONObject jDish = jDishes.getJSONObject(i);
-                    String dishName = jDish.getString("name");
-                    String dishDesc = jDish.getString("description");
+                    String dishName = jDish.getString(JsonConstants.Dish.NAME);
+                    String dishDesc = jDish.getString(JsonConstants.Dish.DESCRIPTION);
                     myListItems.add(new Dish (dishName, dishDesc));
                 } catch (JSONException e) {
                     e.printStackTrace();

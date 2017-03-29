@@ -12,6 +12,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.hackathon.eatsmart.JsonConstants;
 import org.hackathon.eatsmart.R;
 import org.hackathon.eatsmart.Storage;
 import org.json.JSONArray;
@@ -58,13 +59,13 @@ public class CustomerRestaurantChooserActivity extends FragmentActivity implemen
 
         JSONObject json =  Storage.getInstance().getJson();
 
-        JSONArray rests = null;
+        JSONArray rests;
         try {
-            rests = json.getJSONArray("restaurants");
+            rests = json.getJSONArray(JsonConstants.Restaurant.RESTAURANTS);
             for(int i = 0; i < rests.length(); i++) {
                 JSONObject rest = rests.getJSONObject(i);
-                LatLng loc = new LatLng(rest.getDouble("lat"), rest.getDouble("lng"));
-                mMap.addMarker(new MarkerOptions().position(loc).title(rest.getString("name")));
+                LatLng loc = new LatLng(rest.getDouble(JsonConstants.Restaurant.LAT), rest.getDouble(JsonConstants.Restaurant.LNG));
+                mMap.addMarker(new MarkerOptions().position(loc).title(rest.getString(JsonConstants.Restaurant.NAME)));
                 moveToCurrentLocation(loc);
             }
         } catch (JSONException e) {
