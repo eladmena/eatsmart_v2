@@ -1,44 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/like_cover2"
     tools:context="org.hackathon.eatsmart.activity.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:layout_width="373dp"
-        android:layout_height="492dp"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteY="11dp"
-        tools:layout_editor_absoluteX="8dp">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:gravity="center"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp">
 
-        <Button
-            android:id="@+id/restaurantBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/restaurant_button_text"
-            tools:layout_editor_absoluteX="49dp"
-            tools:layout_editor_absoluteY="15dp" />
+                <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/customerBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/customer_button_text"
-            tools:layout_editor_absoluteX="49dp"
-            tools:layout_editor_absoluteY="89dp" />
-    </LinearLayout>
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                                <Button
+                                    android:id="@+id/restaurantBtn"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="@string/restaurant_button_text"
+                                    android:textSize="30dp"
+                                    android:fontFamily="casual"
+                                    android:textStyle="bold"
+                                    tools:layout_editor_absoluteX="8dp"
+                                    tools:layout_editor_absoluteY="200dp" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                                <Button
+                                    android:id="@+id/customerBtn"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:text="@string/customer_button_text"
+                                    android:textSize="30dp"
+                                    android:textStyle="bold"
+                                    android:fontFamily="casual"
+                                    tools:layout_editor_absoluteX="8dp"
+                                    tools:layout_editor_absoluteY="248dp" />
+
+                        </TableRow>
+                </TableLayout>
+        </LinearLayout>
+
 
 </android.support.constraint.ConstraintLayout>
