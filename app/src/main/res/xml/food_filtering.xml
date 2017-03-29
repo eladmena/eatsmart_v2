@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/food_filtering">
-        <CheckBoxPreference android:key="dairy_free" android:title="Dairy Free" />
-        <CheckBoxPreference android:key="egg_free" android:title="Egg Free" />
-        <CheckBoxPreference android:key="gluten_free" android:title="Gluten Free" />
-        <CheckBoxPreference android:key="peanut_free" android:title="Peanut Free" />
-        <CheckBoxPreference android:key="seafood_free" android:title="Seafood Free" />
-        <CheckBoxPreference android:key="sesame_free" android:title="Sesame Free" />
-        <CheckBoxPreference android:key="soy_free" android:title="Soy Free" />
-        <CheckBoxPreference android:key="sulfite_free" android:title="Sulfite Free" />
-        <CheckBoxPreference android:key="tree_nut_free" android:title="Tree Nut Free" />
-        <CheckBoxPreference android:key="wheat_free" android:title="Wheat Free"/>
+        <CheckBoxPreference android:key="dairy_free" android:title="Dairy Free" android:defaultValue="false" />
+        <CheckBoxPreference android:key="egg_free" android:title="Egg Free" android:defaultValue="false" />
+        <CheckBoxPreference android:key="gluten_free" android:title="Gluten Free" android:defaultValue="false" />
+        <CheckBoxPreference android:key="peanut_free" android:title="Peanut Free" android:defaultValue="false" />
+        <CheckBoxPreference android:key="seafood_free" android:title="Seafood Free" android:defaultValue="false" />
+        <CheckBoxPreference android:key="sesame_free" android:title="Sesame Free" android:defaultValue="false" />
+        <CheckBoxPreference android:key="soy_free" android:title="Soy Free" android:defaultValue="false" />
+        <CheckBoxPreference android:key="sulfite_free" android:title="Sulfite Free" android:defaultValue="false" />
+        <CheckBoxPreference android:key="tree_nut_free" android:title="Tree Nut Free" android:defaultValue="false" />
+        <CheckBoxPreference android:key="wheat_free" android:title="Wheat Free" android:defaultValue="false" />
     </PreferenceCategory>
 </PreferenceScreen>
