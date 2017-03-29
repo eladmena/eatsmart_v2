@@ -20,6 +20,8 @@ import java.io.Writer;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.Map;
 import java.util.Set;
 
 
@@ -135,7 +137,12 @@ public class Storage {
             for (int j = 0; j < restrictionsArray.size(); j++) {
                 restrictionsSet.add((String)restrictionsArray.get(j));
             }
-            dishList.add(new Dish(name, description, picUrl, restrictionsSet));
+            LinkedHashMap<String, Object> nutritionValues = (LinkedHashMap<String, Object>)dishMap.get(JsonConstants.Dish.NUTRITIONAL_VALUES);
+            Set<String> nutritionalValueSet = new LinkedHashSet<>(nutritionValues.size());
+            for (Map.Entry<String, Object> entry : nutritionValues.entrySet()) {
+                nutritionalValueSet.add(entry.getKey() + ": " + entry.getValue());
+            }
+            dishList.add(new Dish(name, description, picUrl, restrictionsSet, nutritionalValueSet));
         }
 
         return dishList;

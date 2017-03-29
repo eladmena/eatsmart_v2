@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.ExpandableListView;
+import android.widget.Toast;
 
 import org.hackathon.eatsmart.R;
 import org.hackathon.eatsmart.Storage;
@@ -13,7 +14,6 @@ import org.hackathon.eatsmart.adapter.ExpandableListAdapter;
 import org.hackathon.eatsmart.data.Dish;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -45,34 +45,18 @@ public class CustomerDishChooserActivity extends AppCompatActivity {
         ArrayList<Dish> restaurantDishes = Storage.getInstance().getRestaurantDishes(restName);
         filterDishes(restaurantDishes, restrictions);
 
-        String nutrition[] = {"Serving weight grams: 204.525",
-                "Calories: 305.43",
-                "Total fat: 18.78",
-                "Saturated fat: 7.33",
-                "Cholesterol: 95.99",
-                "Sodium: 270.88",
-                "Total carbohydrate: 5.05",
-                "Dietary fiber: 2.11",
-                "Sugars: 1.71",
-                "Protein: 29.11",
-                "Potassium: 501.03"};
-
-        final List<String> nutrientsArray = Arrays.asList(nutrition);
         final ExpandableListView expListView = (ExpandableListView) findViewById(R.id.custDishList);
 
         for (Dish restaurantDish : restaurantDishes) {
-            listDataChild.put(restaurantDish, nutrientsArray);
+            listDataChild.put(restaurantDish, new ArrayList<>(restaurantDish.getNutritionalValues()));
         }
 
-        //final ExtendedDishAdapter dishAdapter = new ExtendedDishAdapter(this, 0, myListItems);
         final ExpandableListAdapter dishAdapter = new ExpandableListAdapter(this, restaurantDishes, listDataChild);
         expListView.setAdapter(dishAdapter);
 
-        //dishList.setAdapter(dishAdapter);
-        //dishList.setTranscriptMode(ListView.TRANSCRIPT_MODE_NORMAL);
-        //dishList.setStackFromBottom(false);
-
-//        Toast.makeText(getApplicationContext(), restName, Toast.LENGTH_LONG).show();
+        if (listDataChild.size() == 0) {
+        Toast.makeText(getApplicationContext(), "No dishes match user's health filter.", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
