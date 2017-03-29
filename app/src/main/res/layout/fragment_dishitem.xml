@@ -9,7 +9,7 @@
         android:id="@+id/dishImage"
         android:layout_width="@dimen/dish_item_height"
         android:layout_height="@dimen/dish_item_height"
-        app:srcCompat="@mipmap/app_icon" />
+        android:src="@drawable/no_image" />
 
     <LinearLayout
         android:layout_width="wrap_content"

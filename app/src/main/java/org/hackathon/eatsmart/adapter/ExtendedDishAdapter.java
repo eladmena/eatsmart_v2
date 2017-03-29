@@ -2,11 +2,8 @@ package org.hackathon.eatsmart.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.net.Uri;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,10 +14,6 @@ import android.widget.TextView;
 import org.hackathon.eatsmart.R;
 import org.hackathon.eatsmart.data.Dish;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.ArrayList;
 
 /**
@@ -82,44 +75,14 @@ public class ExtendedDishAdapter extends ArrayAdapter<Dish> {
             holder.dish_description.setText(dishList.get(position).getDishDescription());
             String imageUrl = dishList.get(position).getImageUrl();
             if (imageUrl != null) {
-                try {
-//                    holder.dish_image.setImageDrawable(drawableFromUrl(imageUrl));
-//                    holder.dish_image.setImageBitmap(bitmapFromUrl(imageUrl));
-//                    holder.dish_image.setImageURI(Uri.parse(imageUrl));
-//                    holder.dish_image.setImageResource(R.drawable.common_google_signin_btn_icon_dark);
-                } catch (Exception e) {
-                    // do nothing, will not override default image
-                    holder.dish_name.setText(e.getMessage());
+                AsyncTask<String, Void, Drawable> execute = new ImageLoaderTask().execute(imageUrl);
+                Drawable drawable = execute.get();
+                if (drawable != null) {
+                    holder.dish_image.setImageDrawable(drawable);
                 }
             }
         } catch (Exception e) {
-
-
         }
         return vi;
     }
-
-    public static Drawable drawableFromUrl(String url) throws IOException {
-        Bitmap x;
-
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-        connection.setRequestProperty("User-agent","Mozilla/4.0");
-        connection.connect();
-        InputStream input = connection.getInputStream();
-
-        x = BitmapFactory.decodeStream(input);
-        return new BitmapDrawable(x);
-    }
-
-    private static Bitmap bitmapFromUrl(String url) throws IOException {
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-        connection.setRequestProperty("User-agent","Mozilla/4.0");
-        connection.setDoInput(true);
-        connection.connect();
-        InputStream input = connection.getInputStream();
-
-        return BitmapFactory.decodeStream(input);
-    }
-
-
 }
