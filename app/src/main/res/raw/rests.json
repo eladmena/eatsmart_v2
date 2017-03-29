@@ -44,16 +44,16 @@
           "nutritions":
           {
             "serving_weight_grams": 204.525,
-            "nf_calories": 305.43,
-            "nf_total_fat": 18.78,
-            "nf_saturated_fat": 7.33,
-            "nf_cholesterol": 95.99,
-            "nf_sodium": 270.88,
-            "nf_total_carbohydrate": 5.05,
-            "nf_dietary_fiber": 2.11,
-            "nf_sugars": 1.71,
-            "nf_protein": 29.11,
-            "nf_potassium": 501.03
+            "Calories": 305.43,
+            "Total fat": 18.78,
+            "Saturated fat": 7.33,
+            "Cholesterol": 95.99,
+            "Sodium": 270.88,
+            "Total carbohydrate": 5.05,
+            "Dietary fiber": 2.11,
+            "Sugars": 1.71,
+            "Protein": 29.11,
+            "Potassium": 501.03
           }
         },
         {
@@ -83,16 +83,16 @@
           "nutritions":
           {
             "serving_weight_grams": 71.06607,
-            "nf_calories": 233.67,
-            "nf_total_fat": 13.7,
-            "nf_saturated_fat": 2.9,
-            "nf_cholesterol": 0,
-            "nf_sodium": 318.35,
-            "nf_total_carbohydrate": 23.74,
-            "nf_dietary_fiber": 4.72,
-            "nf_sugars": 8.59,
-            "nf_protein": 7.54,
-            "nf_potassium": 359.24
+            "Calories": 233.67,
+            "Total fat": 13.7,
+            "Saturated fat": 2.9,
+            "Cholesterol": 0,
+            "Sodium": 318.35,
+            "Total carbohydrate": 23.74,
+            "Dietary fiber": 4.72,
+            "Sugars": 8.59,
+            "Protein": 7.54,
+            "Potassium": 359.24
           }
         },
         {
@@ -105,16 +105,16 @@
           "nutritions":
           {
             "serving_weight_grams": 71.06607,
-            "nf_calories": 233.67,
-            "nf_total_fat": 13.7,
-            "nf_saturated_fat": 2.9,
-            "nf_cholesterol": 0,
-            "nf_sodium": 318.35,
-            "nf_total_carbohydrate": 23.74,
-            "nf_dietary_fiber": 4.72,
-            "nf_sugars": 8.59,
-            "nf_protein": 7.54,
-            "nf_potassium": 359.24
+            "Calories": 233.67,
+            "Total fat": 13.7,
+            "Saturated fat": 2.9,
+            "Cholesterol": 0,
+            "Sodium": 318.35,
+            "Total carbohydrate": 23.74,
+            "Dietary fiber": 4.72,
+            "Sugars": 8.59,
+            "Protein": 7.54,
+            "Potassium": 359.24
           }
         },
         {
@@ -127,16 +127,16 @@
           "nutritions":
           {
             "serving_weight_grams": 71.06607,
-            "nf_calories": 233.67,
-            "nf_total_fat": 13.7,
-            "nf_saturated_fat": 2.9,
-            "nf_cholesterol": 0,
-            "nf_sodium": 318.35,
-            "nf_total_carbohydrate": 23.74,
-            "nf_dietary_fiber": 4.72,
-            "nf_sugars": 8.59,
-            "nf_protein": 7.54,
-            "nf_potassium": 359.24
+            "Calories": 233.67,
+            "Total fat": 13.7,
+            "Saturated fat": 2.9,
+            "Cholesterol": 0,
+            "Sodium": 318.35,
+            "Total carbohydrate": 23.74,
+            "Dietary fiber": 4.72,
+            "Sugars": 8.59,
+            "Protein": 7.54,
+            "Potassium": 359.24
           }
         }
       ]

@@ -3,7 +3,6 @@ package org.hackathon.eatsmart.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +10,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.hackathon.eatsmart.ImageLoader;
 import org.hackathon.eatsmart.R;
 import org.hackathon.eatsmart.data.Dish;
 
@@ -21,10 +21,10 @@ import java.util.List;
 /**
  * Created by htg1ue on 3/28/2017.
  */
-
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private static LayoutInflater inflater = null;
 
+    private String restaurantName;
     private Activity _context;
     private ArrayList<Dish> dishList;
     // header titles
@@ -32,18 +32,14 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     private HashMap<Dish, List<String>> _listDataChild;
 
     public ExpandableListAdapter(Activity context, ArrayList<Dish> listDataHeader,
-                                 HashMap<Dish, List<String>> listChildData) {
+                                 HashMap<Dish, List<String>> listChildData, String restaurantName) {
         this._context = context;
         this.dishList = listDataHeader;
         this._listDataChild = listChildData;
+        this.restaurantName = restaurantName;
         try {
-            this.dishList = dishList;
-
             inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
-        } catch (Exception e) {
-
-        }
+        } catch (Exception e) {}
     }
 
     @Override
@@ -119,13 +115,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
             Dish dish = dishList.get(groupPosition);
             holder.dish_name.setText(dish.getDishName());
             holder.dish_description.setText(dish.getDishDescription());
-            String imageUrl = dish.getImageUrl();
-            if (imageUrl != null) {
-                AsyncTask<String, Void, Drawable> task = new ImageLoaderTask().execute(dish.getImageUrl());
-                Drawable drawable = task.get();
-                if (drawable != null) {
-                    holder.dish_image.setImageDrawable(drawable);
-                }
+            Drawable drawable = ImageLoader.getDishImage(restaurantName, dish.getDishName());
+            if (drawable != null) {
+                holder.dish_image.setImageDrawable(drawable);
             }
         } catch (Exception e) {
 
@@ -144,9 +136,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         return true;
     }
 
-    public static class ViewHolder {
-        public TextView dish_name;
-        public TextView dish_description;
-        public ImageView dish_image;
+    private static class ViewHolder {
+        TextView dish_name;
+        TextView dish_description;
+        ImageView dish_image;
     }
 }

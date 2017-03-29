@@ -7,12 +7,14 @@ import android.view.View;
 import android.widget.Button;
 
 import org.hackathon.eatsmart.R;
+import org.hackathon.eatsmart.adapter.ImageLoaderTask;
 
 public class MainActivity extends AppCompactActivityWithOptionMenu {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        new ImageLoaderTask().execute();
         setContentView(R.layout.activity_main);
         PreferenceManager.setDefaultValues(this,R.xml.food_filtering,false);
         PreferenceManager.getDefaultSharedPreferences(this).edit().clear();
