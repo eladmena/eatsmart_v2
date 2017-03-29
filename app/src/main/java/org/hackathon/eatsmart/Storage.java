@@ -65,7 +65,6 @@ import java.util.Set;
  */
 public class Storage {
     private static Storage mInstance = null;
-    private static String json;
     private JSONObject jObj;
 
     private Storage() {
@@ -131,7 +130,7 @@ public class Storage {
     }
 
     public ArrayList<Dish> getRestaurantDishes(String restName) {
-        net.minidev.json.JSONArray dishesJsonArray = JsonPath.read(json, "$.restaurants[?(@.name == '" + restName + "')].dishes");
+        net.minidev.json.JSONArray dishesJsonArray = JsonPath.read(jObj.toString(), "$.restaurants[?(@.name == '" + restName + "')].dishes");
 
         ArrayList<Dish> dishList = new ArrayList<>();
         dishesJsonArray = (net.minidev.json.JSONArray) dishesJsonArray.get(0); // getInnerArray

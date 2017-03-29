@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Storage.init(getResources().openRawResource(R.raw.restaurants));
         PreferenceManager.setDefaultValues(this,R.xml.food_filtering,false);
 
         //R.drawable.mainover1.setAlpha(30);
