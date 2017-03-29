@@ -11,17 +11,17 @@ public class Dish {
     private String dishName;
     private String dishDescription;
     private String imageUrl;
-    private Set<String> healthAttributes;
+    private Set<String> restrictions;
 
     public Dish(String dishName, String dishDescription) {
         this(dishName, dishDescription, null, Collections.<String>emptySet());
     }
 
-    public Dish(String dishName, String dishDescription, String imageUrl, Set<String> healthAttributes) {
+    public Dish(String dishName, String dishDescription, String imageUrl, Set<String> restrictions) {
         this.dishName = dishName;
         this.dishDescription = dishDescription;
         this.imageUrl = imageUrl;
-        this.healthAttributes = healthAttributes;
+        this.restrictions = restrictions;
     }
 
     public String getDishName() {
@@ -36,7 +36,7 @@ public class Dish {
         return imageUrl;
     }
 
-    public Set<String> getHealthAttributes() {
-        return Collections.unmodifiableSet(healthAttributes);
+    public Set<String> getRestrictions() {
+        return Collections.unmodifiableSet(restrictions);
     }
 }

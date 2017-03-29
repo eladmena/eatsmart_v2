@@ -23,6 +23,7 @@ public interface JsonConstants {
         String DESCRIPTION = "description";
         String PIC = "pic";
         String HEALTH_ATTRIBUTES = "healthAttrs";
+        String RESTRICTIONS = "restrictions";
         String INGREDIENTS = "ingredients";
     }
 

@@ -1,10 +1,11 @@
 package org.hackathon.eatsmart.activity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.ExpandableListView;
-import android.widget.Toast;
 
 import org.hackathon.eatsmart.R;
 import org.hackathon.eatsmart.Storage;
@@ -14,7 +15,11 @@ import org.hackathon.eatsmart.data.Dish;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class CustomerDishChooserActivity extends AppCompatActivity {
 
@@ -26,10 +31,19 @@ public class CustomerDishChooserActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         HashMap<Dish, List<String>> listDataChild = new HashMap<>();
 
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        Set<String> restrictions = new HashSet<>();
+        Map<String, ?> allPreferences = prefs.getAll();
+        for (String key : allPreferences.keySet()) {
+            if (prefs.getBoolean(key, false)) {
+                restrictions.add(key);
+            }
+        }
 
         String restName = getIntent().getStringExtra("restName");
 
         ArrayList<Dish> restaurantDishes = Storage.getInstance().getRestaurantDishes(restName);
+        filterDishes(restaurantDishes, restrictions);
 
         String nutrition[] = {"Serving weight grams: 204.525",
                 "Calories: 305.43",
@@ -59,5 +73,20 @@ public class CustomerDishChooserActivity extends AppCompatActivity {
         //dishList.setStackFromBottom(false);
 
 //        Toast.makeText(getApplicationContext(), restName, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    private void filterDishes(ArrayList<Dish> restaurantDishes, Set<String> restrictions) {
+
+        for (Iterator<Dish> iterator = restaurantDishes.iterator(); iterator.hasNext(); ) {
+            Dish dish = iterator.next();
+            if (!dish.getRestrictions().containsAll(restrictions)) {
+                iterator.remove();
+            }
+        }
     }
 }

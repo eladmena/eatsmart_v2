@@ -23,9 +23,10 @@
       "dishes": [
         {
           "name": "Chicken Tikka",
-          "description": "An Indian Dish With Carri",
+          "description": "An Indian Dish With Curry",
           "pic": "http://assets.epicurious.com/photos/54af56b3c4a891cc44cceb29/master/pass/51171400_chicken-tikka-masala_1x1.jpg",
           "healthAttrs": ["High Protein", "No Gluten"],
+          "restrictions": ["dairy_free", "egg_free", "peanut_free", "seafood_free" ,"sesame_free", "sulfite_free" ,"tree_nut_free", "wheat_free"],
           "ingredients": [
             {
               "name": "carri",
@@ -60,6 +61,7 @@
           "description": "Pronounced as muse-lee, it is an uncooked mixture of nuts, seeds, grains, dried fruits, and spices",
           "pic": "http://nutritionstripped.com/wp-content/uploads/2014/02/nourishing-muesli5-e1392592834715.jpg",
           "healthAttrs": ["High Protein", "Good Fat"],
+          "restrictions": ["egg_free", "seafood_free" ,"soy_free", "sulfite_free" ,"tree_nut_free", "wheat_free"],
           "ingredients": [
             {
               "name": "rolled oats",
@@ -98,6 +100,7 @@
           "description": "Directly from Italy, simple yet delicious!",
           "pic": "http://arcdn.ar-cdn.com/recipes/xlarge/7e88624a-0ddb-4972-862b-222a9c61c89c.jpg",
           "healthAttrs": ["High Carbs", "High Fat"],
+          "restrictions": ["egg_free", "peanut_free", "seafood_free" ,"sesame_free", "soy_free", "sulfite_free" ,"tree_nut_free"],
           "ingredients": [],
           "nutritions":
           {
@@ -119,6 +122,7 @@
           "description": "Pan-Seared Salmon - A Wonderful dish!",
           "pic": "http://vegasmagazine.com/get/files/image/galleries/3829_content_083_VEGJXF10-1.jpg",
           "healthAttrs": ["High Protein", "Low Fat"],
+          "restrictions": ["dairy_free", "egg_free", "gluten_free", "peanut_free", "seafood_free" ,"sesame_free", "sulfite_free" ,"tree_nut_free", "wheat_free"],
           "ingredients": [],
           "nutritions":
           {

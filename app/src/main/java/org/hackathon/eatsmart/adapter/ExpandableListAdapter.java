@@ -78,7 +78,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return this._listDataChild.get(this.dishList.get(groupPosition))
+        return _listDataChild.get(this.dishList.get(groupPosition))
                 .size();
     }
 
@@ -101,11 +101,11 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded,
                              View convertView, ViewGroup parent) {
         View vi = convertView;
-        final ExtendedDishAdapter.ViewHolder holder;
+        final ExpandableListAdapter.ViewHolder holder;
         try {
             if (convertView == null) {
                 vi = inflater.inflate(R.layout.fragment_dishitem, null);
-                holder = new ExtendedDishAdapter.ViewHolder();
+                holder = new ExpandableListAdapter.ViewHolder();
 
                 holder.dish_name = (TextView) vi.findViewById(R.id.dishName);
                 holder.dish_description = (TextView) vi.findViewById(R.id.dishDescription);
@@ -113,7 +113,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
                 vi.setTag(holder);
             } else {
-                holder = (ExtendedDishAdapter.ViewHolder) vi.getTag();
+                holder = (ExpandableListAdapter.ViewHolder) vi.getTag();
             }
 
             Dish dish = dishList.get(groupPosition);
@@ -142,5 +142,11 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return true;
+    }
+
+    public static class ViewHolder {
+        public TextView dish_name;
+        public TextView dish_description;
+        public ImageView dish_image;
     }
 }
