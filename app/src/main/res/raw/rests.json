@@ -98,24 +98,28 @@
           "description": "Directly from Italy, simple yet delicious!",
           "pic": "http://arcdn.ar-cdn.com/recipes/xlarge/7e88624a-0ddb-4972-862b-222a9c61c89c.jpg",
           "healthAttrs": ["High Carbs", "High Fat"],
-          "ingredients": [
-            {
-              "name": "rolled oats",
-              "quantity": "2 cups"
-            },
-            {
-              "name": "quinoa flakes",
-              "quantity": "2 cups"
-            },
-            {
-              "name": "almonds",
-              "quantity": "1 cup"
-            },
-            {
-              "name": "vanilla extract",
-              "quantity": "1 teaspoon"
-            }
-          ],
+          "ingredients": [],
+          "nutritions":
+          {
+            "serving_weight_grams": 71.06607,
+            "nf_calories": 233.67,
+            "nf_total_fat": 13.7,
+            "nf_saturated_fat": 2.9,
+            "nf_cholesterol": 0,
+            "nf_sodium": 318.35,
+            "nf_total_carbohydrate": 23.74,
+            "nf_dietary_fiber": 4.72,
+            "nf_sugars": 8.59,
+            "nf_protein": 7.54,
+            "nf_potassium": 359.24
+          }
+        },
+        {
+          "name": "Salmon - Dish De Jour",
+          "description": "Pan-Seared Salmon - A Wonderful dish!",
+          "pic": "http://vegasmagazine.com/get/files/image/galleries/3829_content_083_VEGJXF10-1.jpg",
+          "healthAttrs": ["High Protein", "Low Fat"],
+          "ingredients": [],
           "nutritions":
           {
             "serving_weight_grams": 71.06607,
