@@ -1,6 +1,8 @@
 package org.hackathon.eatsmart.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +25,15 @@ public class IngredientListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_real_ing_list);
+
+        FloatingActionButton fab_done = (FloatingActionButton) findViewById(R.id.fab_done);
+        fab_done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent menuIntent = new Intent(getApplicationContext(), EditMenuActivity.class);
+                startActivity(menuIntent);
+            }
+        });
 
         listview = (ListView) findViewById(R.id.MenuDishList);
         listView();
