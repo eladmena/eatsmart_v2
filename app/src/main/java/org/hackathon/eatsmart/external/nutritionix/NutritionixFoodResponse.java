@@ -5,17 +5,17 @@ package org.hackathon.eatsmart.external.nutritionix;
 //@JsonIgnoreProperties(ignoreUnknown = true)
 public class NutritionixFoodResponse {
 	
-    protected float serving_weight_grams;
-	protected float nf_calories;
-	protected float nf_total_fat;
-	protected float nf_saturated_fat;
-	protected float nf_cholesterol;
-	protected float nf_sodium;
-	protected float nf_total_carbohydrate;
-	protected float nf_dietary_fiber;
-	protected float nf_sugars;
-	protected float nf_protein;
-	protected float nf_potassium;
+    protected float serving_weight_grams = 0;
+	protected float nf_calories = 0;
+	protected float nf_total_fat= 0;
+	protected float nf_saturated_fat= 0;
+	protected float nf_cholesterol= 0;
+	protected float nf_sodium= 0;
+	protected float nf_total_carbohydrate= 0;
+	protected float nf_dietary_fiber= 0;
+	protected float nf_sugars= 0;
+	protected float nf_protein= 0;
+	protected float nf_potassium= 0;
     
     
 	public float getServing_weight_grams() {

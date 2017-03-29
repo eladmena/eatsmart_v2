@@ -14,4 +14,9 @@ public class Ingredient {
         item_name = name;
         item_quantity = quantity;
     }
+
+    @Override
+    public String toString() {
+        return item_quantity + " " + item_name;
+    }
 }
