@@ -81,10 +81,10 @@ public class ExtendedDishAdapter extends ArrayAdapter<Dish> {
             holder.dish_description.setText(dishList.get(position).getDishDescription());
             String imageUrl = dishList.get(position).getImageUrl();
 //            if (imageUrl != null) {
-                Drawable drawable = tasks.get(position).get();
-                if (drawable != null) {
-                    holder.dish_image.setImageDrawable(drawable);
-                }
+//                Drawable drawable = tasks.get(position).get();
+//                if (drawable != null) {
+//                    holder.dish_image.setImageDrawable(drawable);
+//                }
 //            }
         } catch (Exception e) {
         }
